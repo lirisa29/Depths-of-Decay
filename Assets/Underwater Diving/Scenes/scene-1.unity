@@ -5306,9 +5306,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5f7c14ba2994b8982dc1518d0171c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  rushing: 0
-  bubbles: {fileID: 1801604868145782, guid: e969aaa734be044efad60bd50e7fb070, type: 3}
+  baseSpeed: 1
+  speedDebuffPerKg: 0.1
+  trashCountText: {fileID: 0}
+  speedText: {fileID: 0}
 --- !u!95 &1430782088
 Animator:
   serializedVersion: 7
