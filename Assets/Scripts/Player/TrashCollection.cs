@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrashCollection : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class TrashCollection : MonoBehaviour
 
     private int carriedTrashCount = 0;
     private int totalTrashDeposited = 0;
+    private int projectedTotal;
 
     private TrashItem nearbyTrash;
     private PlayerController playerController;
@@ -17,8 +19,8 @@ public class TrashCollection : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
         gameUI = FindFirstObjectByType<GameUI>();
-        gameUI?.UpdateTrash(carriedTrashCount, totalTrashDeposited, collectionGoal);
-        gameUI?.UpdateSpeed(playerController.currentSpeed);
+        gameUI?.UpdateTrashCarryingText(carriedTrashCount, carryLimit);
+        gameUI?.UpdateTrashDepositedText(totalTrashDeposited, collectionGoal);
     }
 
     void Update()
@@ -30,10 +32,12 @@ public class TrashCollection : MonoBehaviour
             {
                 CollectTrash(nearbyTrash);
                 nearbyTrash = null;
-            }
-            else
-            {
-                Debug.Log("Trash carry limit reached!");
+                
+                if (carriedTrashCount >= carryLimit)
+                {
+                    gameUI.SetCarryTextColor(Color.red);
+                    gameUI?.ShowCarryStatus("Carry Limit Reached! Go back to Base");
+                }
             }
         }
     }
@@ -46,23 +50,31 @@ public class TrashCollection : MonoBehaviour
 
         Destroy(trash.gameObject);
 
-        gameUI?.UpdateTrash(carriedTrashCount, totalTrashDeposited, collectionGoal);
-        gameUI?.UpdateSpeed(playerController.currentSpeed);
+        gameUI?.UpdateTrashCarryingText(carriedTrashCount, carryLimit);
+        
+        // Check if this collection completes the goal
+        projectedTotal = totalTrashDeposited + carriedTrashCount;
+        if (projectedTotal >= collectionGoal)
+        {
+            gameUI?.ShowCarryStatus("All Trash Collected! Go back to Base");
+        }
     }
 
     public void DepositTrash()
     {
+        gameUI?.HideDepositButton();
+        gameUI?.SetCarryTextColor(Color.white);
+        
         totalTrashDeposited += carriedTrashCount;
         carriedTrashCount = 0;
         playerController.ResetSpeed();
 
-        gameUI?.UpdateTrash(carriedTrashCount, totalTrashDeposited, collectionGoal);
-        gameUI?.UpdateSpeed(playerController.currentSpeed);
+        gameUI?.UpdateTrashDepositedText(totalTrashDeposited, collectionGoal);
+        gameUI?.UpdateTrashCarryingText(carriedTrashCount, carryLimit);
 
         if (totalTrashDeposited >= collectionGoal)
         {
-            Debug.Log("Goal reached! All trash collected.");
-            // Trigger win/next level/celebration here
+            gameUI?.ShowWinScreen();
         }
     }
 
@@ -71,6 +83,26 @@ public class TrashCollection : MonoBehaviour
         if (other.CompareTag("Trash"))
         {
             nearbyTrash = other.GetComponent<TrashItem>();
+            
+            if (nearbyTrash != null)
+            {
+                string name = nearbyTrash.GetTrashName();
+                float weight = nearbyTrash.GetWeight();
+                float debuffPercent = weight * speedDebuffPerKg * 100f;
+
+                Vector3 popupPosition = playerController.transform.position + new Vector3(1f, 1.5f, 0f);
+                gameUI?.ShowTrashInfoPopup(name, weight, debuffPercent, popupPosition);
+            }
+        }
+
+        if (other.CompareTag("Base"))
+        {
+            gameUI?.HideCarryingStatus();
+
+            if (carriedTrashCount != 0)
+            {
+                gameUI?.ShowDepositButton();
+            }
         }
     }
 
@@ -79,6 +111,22 @@ public class TrashCollection : MonoBehaviour
         if (other.CompareTag("Trash") && nearbyTrash == other.GetComponent<TrashItem>())
         {
             nearbyTrash = null;
+            gameUI?.HideTrashInfoPopup();
+        }
+
+        if (other.CompareTag("Base"))
+        {
+            gameUI?.HideDepositButton();
+            
+            if (projectedTotal >= collectionGoal)
+            {
+                gameUI?.ShowCarryStatus("All Trash Collected! Go back to Base");
+            }
+            
+            if (carriedTrashCount >= carryLimit)
+            {
+                gameUI?.ShowCarryStatus("Carry Limit Reached! Go back to Base");
+            }
         }
     }
 }
