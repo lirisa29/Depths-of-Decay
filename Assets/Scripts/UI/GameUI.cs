@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.Serialization;
 
 public class GameUI : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class GameUI : MonoBehaviour
     private GameObject activeTrashPopup;
     public Transform canvasTransform;
     public GameObject winScreen;
+    public GameObject loseScreen;
     public GameObject ingameUI;
 
     public void UpdateTrashCarryingText(int carried, int limit)
@@ -89,5 +89,12 @@ public class GameUI : MonoBehaviour
         Time.timeScale = 0;
         ingameUI.SetActive(false);
         winScreen.SetActive(true);
+    }
+
+    public void ShowLoseScreen()
+    {
+        Time.timeScale = 0;
+        ingameUI.SetActive(false);
+        loseScreen.SetActive(true);
     }
 }
