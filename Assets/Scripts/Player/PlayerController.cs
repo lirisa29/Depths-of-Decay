@@ -57,9 +57,28 @@ public class PlayerController : MonoBehaviour{
 		}
 
 		// Flip sprite when swimming left/right
-		if (horizontal != 0)
+		if (horizontal > 0)
 		{
-			transform.localScale = new Vector3(Mathf.Sign(horizontal), 1f, 1f);
+			transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0f, transform.rotation.eulerAngles.z);
+		}
+		else if (horizontal < 0)
+		{
+			transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 180f, transform.rotation.eulerAngles.z);
+		}
+		
+		// Rotate player on W/S press
+		if (Input.GetKeyDown(KeyCode.W))
+		{
+			transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 45f);
+		}
+		else if (Input.GetKeyDown(KeyCode.S))
+		{
+			transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, -45f);
+		}
+
+		if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+		{
+			transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0f);
 		}
 		
 		/*if(Input.GetButtonDown("Jump") && !rushing ){

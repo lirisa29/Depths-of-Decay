@@ -76,56 +76,52 @@ public class TrashCollection : MonoBehaviour
             gameUI?.ShowWinScreen();
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
+    
+    public void NotifyNearTrash(TrashItem trash)
     {
-        if (other.CompareTag("Trash"))
+        nearbyTrash = trash;
+
+        if (nearbyTrash != null)
         {
-            nearbyTrash = other.GetComponent<TrashItem>();
-            
-            if (nearbyTrash != null)
-            {
-                string name = nearbyTrash.GetTrashName();
-                float weight = nearbyTrash.GetWeight();
-                float debuffPercent = weight * speedDebuffPerKg * 100f;
+            string name = nearbyTrash.GetTrashName();
+            float weight = nearbyTrash.GetWeight();
+            float debuffPercent = weight * speedDebuffPerKg * 100f;
 
-                Vector3 popupPosition = playerController.transform.position + new Vector3(1f, 1.5f, 0f);
-                gameUI?.ShowTrashInfoPopup(name, weight, debuffPercent, popupPosition);
-            }
-        }
-
-        if (other.CompareTag("Base"))
-        {
-            gameUI?.HideCarryingStatus();
-
-            if (carriedTrashCount != 0)
-            {
-                gameUI?.ShowDepositButton();
-            }
+            Vector3 popupPosition = playerController.transform.position + new Vector3(1f, 1.5f, 0f);
+            gameUI?.ShowTrashInfoPopup(name, weight, debuffPercent, popupPosition);
         }
     }
-
-    void OnTriggerExit2D(Collider2D other)
+    
+    public void NotifyLeftTrash(TrashItem trash)
     {
-        if (other.CompareTag("Trash") && nearbyTrash == other.GetComponent<TrashItem>())
+        if (nearbyTrash == trash)
         {
             nearbyTrash = null;
             gameUI?.HideTrashInfoPopup();
         }
+    }
+    
+    public void NotifyEnteredBase()
+    {
+        gameUI?.HideCarryingStatus();
 
-        if (other.CompareTag("Base"))
+        if (carriedTrashCount != 0)
         {
-            gameUI?.HideDepositButton();
-            
-            if (projectedTotal >= collectionGoal)
-            {
-                gameUI?.ShowCarryStatus("All Trash Collected! Go back to Base");
-            }
-            
-            if (carriedTrashCount >= carryLimit)
-            {
-                gameUI?.ShowCarryStatus("Carry Limit Reached! Go back to Base");
-            }
+            gameUI?.ShowDepositButton();
+        }
+    }
+
+    public void NotifyExitedBase()
+    {
+        gameUI?.HideDepositButton();
+
+        if (projectedTotal >= collectionGoal)
+        {
+            gameUI?.ShowCarryStatus("All Trash Collected! Go back to Base");
+        }
+        else if (carriedTrashCount >= carryLimit)
+        {
+            gameUI?.ShowCarryStatus("Carry Limit Reached! Go back to Base");
         }
     }
 }

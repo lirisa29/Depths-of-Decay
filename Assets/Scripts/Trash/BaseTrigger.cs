@@ -1,13 +1,7 @@
 using UnityEngine;
 
-public class TrashItem : MonoBehaviour
+public class BaseTrigger : MonoBehaviour
 {
-    public TrashItemData itemData;
-
-    public float GetWeight() => itemData.Weight;
-    public string GetTrashName() => itemData.trashName;
-    public TrashCategory GetCategory() => itemData.categoryData.categoryType;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -15,11 +9,11 @@ public class TrashItem : MonoBehaviour
             var trashCollector = other.GetComponent<TrashCollection>();
             if (trashCollector != null)
             {
-                trashCollector.NotifyNearTrash(this);
+                trashCollector.NotifyEnteredBase();
             }
         }
     }
-    
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -27,7 +21,7 @@ public class TrashItem : MonoBehaviour
             var trashCollector = other.GetComponent<TrashCollection>();
             if (trashCollector != null)
             {
-                trashCollector.NotifyLeftTrash(this);
+                trashCollector.NotifyExitedBase();
             }
         }
     }
