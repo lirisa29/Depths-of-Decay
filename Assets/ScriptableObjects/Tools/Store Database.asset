@@ -15,7 +15,7 @@ MonoBehaviour:
   tools:
   - image: {fileID: 0}
     name: Trash Grabber
-    pros: '                   Default'
+    pros: Default
     cons: No Special Abilities
     price: 75
     isPurchased: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
     pros: 'Pros: Increases Carry Capacity'
     cons: 'Cons: Decreases Speed'
     price: 100
-    isPurchased: 0
+    isPurchased: 1
   - image: {fileID: 0}
     name: Jet Propulsion Fins
     pros: 'Pros: Increases Speed'

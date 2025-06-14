@@ -9,7 +9,6 @@ public class ToolStoreUI : MonoBehaviour
     private float itemHeight;
     
     [Header("UI Elements")] 
-    [SerializeField] private Transform storeMenu;
     [SerializeField] private Transform storeItemsContainer;
     [SerializeField] private GameObject itemPrefab;
     [Space(20)] 
@@ -30,25 +29,11 @@ public class ToolStoreUI : MonoBehaviour
     [Space (20)]
     [Header ("Error messages")]
     [SerializeField] TextMeshProUGUI noEnoughPointsText;
-
-    int newSelectedItemIndex = 0;
-    int previousSelectedItemIndex = 0;
-
+    
     void Start()
     {
         AddStoreEvents();
         GenerateStoreItemUI();
-        SetSelectedTool();
-        SelectItemUI(GameDataManager.GetSelectedToolIndex());
-    }
-    
-    void SetSelectedTool ()
-    {
-        //Get saved index
-        int index = GameDataManager.GetSelectedToolIndex ();
-
-        //Set selected tool
-        GameDataManager.SetSelectedTool (toolDatabase.GetTool(index), index);
     }
 
     void GenerateStoreItemUI()
@@ -81,34 +66,12 @@ public class ToolStoreUI : MonoBehaviour
             
             visibleItemCount++;
             
-            float margin = 10f; // Customize this as needed
+            float margin = 20f; // Customize this as needed
             float totalHeight = visibleItemCount * (itemHeight + itemSpacing) - itemSpacing + margin * 2;
 
             storeItemsContainer.GetComponent<RectTransform>().sizeDelta =
                 new Vector2(storeItemsContainer.GetComponent<RectTransform>().sizeDelta.x, Mathf.Max(totalHeight, 0f));
         }
-    }
-
-    void OnItemSelected(int index)
-    {
-        // Select item in the UI
-        SelectItemUI (index);
-
-        //Save Data
-        GameDataManager.SetSelectedTool (toolDatabase.GetTool(index), index);
-    }
-    
-    void SelectItemUI (int itemIndex)
-    {
-        previousSelectedItemIndex = newSelectedItemIndex;
-        newSelectedItemIndex = itemIndex;
-
-        ToolItemUI prevUiItem = GetItemUI (previousSelectedItemIndex);
-        ToolItemUI newUiItem = GetItemUI (newSelectedItemIndex);
-
-        prevUiItem.DeselectItem ();
-        newUiItem.SelectItem ();
-
     }
     
     ToolItemUI GetItemUI (int index)
@@ -132,12 +95,15 @@ public class ToolStoreUI : MonoBehaviour
             toolDatabase.PurchaseTool(index);
 
             uiItem.SetToolPurchased();
-            uiItem.OnItemSelect (index, OnItemSelected);
 
             //Add purchased item to Shop Data
             GameDataManager.AddPurchasedTool(index);
+            
+            GenerateStoreItemUI();
 
-        } else {
+        } 
+        else 
+        {
             //No enough coins..
             AnimateNoMoreCoinsText ();
         }
@@ -145,14 +111,7 @@ public class ToolStoreUI : MonoBehaviour
     
     void AnimateNoMoreCoinsText ()
     {
-       /* // Complete animations (if it's running)
-        noEnoughPointsText.transform.DOComplete ();
-        noEnoughPointsText.DOComplete ();
-
-        noEnoughPointsText.transform.DOShakePosition (3f, new Vector3 (5f, 0f, 0f), 10, 0);
-        noEnoughPointsText.DOFade (1f, 3f).From (0f).OnComplete (() => {
-            noEnoughPointsText.DOFade (0f, 1f);
-        }); */
+       
     }
     
     void OnStoreListScroll (Vector2 value)
