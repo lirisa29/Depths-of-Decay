@@ -828,7 +828,6 @@ GameObject:
   - component: {fileID: 3317960005860373577}
   - component: {fileID: 5997630277618953903}
   - component: {fileID: 8825500362586701370}
-  - component: {fileID: 5447826419484688152}
   - component: {fileID: 6269892324261160765}
   m_Layer: 5
   m_Name: Tool_Item
@@ -940,21 +939,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5447826419484688152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8727016628585573726}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
-  m_EffectDistance: {x: 3, y: -3}
-  m_UseGraphicAlpha: 1
 --- !u!114 &6269892324261160765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,7 +961,7 @@ MonoBehaviour:
   toolPurchaseButton: {fileID: 3439624578019080231}
   itemButton: {fileID: 8825500362586701370}
   itemImage: {fileID: 5997630277618953903}
-  itemOutline: {fileID: 5447826419484688152}
+  itemOutline: {fileID: 0}
 --- !u!1 &8919340234566877466
 GameObject:
   m_ObjectHideFlags: 0

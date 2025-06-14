@@ -20,7 +20,7 @@ public class ToolItemUI : MonoBehaviour
     [Space (20f)]
     [SerializeField] Button itemButton;
     [SerializeField] private Image itemImage;
-    [SerializeField] private Outline itemOutline;
+    //[SerializeField] private Outline itemOutline;
 
     public void SetItemPosition(Vector2 pos)
     {
@@ -75,14 +75,14 @@ public class ToolItemUI : MonoBehaviour
 
     public void SelectItem()
     {
-        itemOutline.enabled = true;
+        //itemOutline.enabled = true;
         itemImage.color = itemSelectedColour;
         itemButton.interactable = false;
     }
     
     public void DeselectItem()
     {
-        itemOutline.enabled = false;
+        //itemOutline.enabled = false;
         itemImage.color = itemNotSelectedColour;
         itemButton.interactable = true;
     }
