@@ -37,12 +37,13 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayBackgroundMusic("BackgroundMusic");
+        PlayBackgroundMusic("BGM_MainMenu");
     }
 
     private void PlayBackgroundMusic(string name)
     {
         AudioClip clip = soundTable[name];
+        if (musicSource.clip == clip) return;
         musicSource.clip = clip;
         musicSource.Play();
     }

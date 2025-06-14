@@ -13,6 +13,8 @@ public class GameUI : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
     public GameObject ingameUI;
+    public GameObject pauseMenu;
+    private bool isPaused;
 
     public void UpdateTrashCarryingText(int carried, int limit)
     {
@@ -96,5 +98,39 @@ public class GameUI : MonoBehaviour
         Time.timeScale = 0;
         ingameUI.SetActive(false);
         loseScreen.SetActive(true);
+    }
+
+    public void PauseGame()
+    {
+        if (!isPaused)
+        {
+            //audioManager.PlaySound("ButtonClick");
+            Time.timeScale = 0;
+
+            isPaused = true;
+
+            ingameUI.SetActive(false);
+            pauseMenu.SetActive(true);
+        }
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        isPaused = false;
+        ingameUI.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
+    
+    public void TogglePause()
+    {
+        if (isPaused)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            PauseGame();
+        }
     }
 }

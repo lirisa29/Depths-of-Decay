@@ -9,18 +9,18 @@ public class ButtonOutlineEffect : MonoBehaviour, IPointerEnterHandler, IPointer
     [Range(0f, 1f)] public float visibleAlpha = 1f; // Fully visible
     [Range(0f, 1f)] public float hiddenAlpha = 0f;  // Fully transparent
     
-    //private AudioManager audioManager;
+    private AudioManager audioManager;
 
     void Start()
     {
         SetAlpha(hiddenAlpha);
-        //audioManager = FindFirstObjectByType<AudioManager>();
+        audioManager = FindFirstObjectByType<AudioManager>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         SetAlpha(visibleAlpha);
-        //audioManager.PlaySound("ButtonHover");
+        audioManager.PlaySound("SFX_ButtonHover");
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -31,12 +31,17 @@ public class ButtonOutlineEffect : MonoBehaviour, IPointerEnterHandler, IPointer
     public void OnPointerDown(PointerEventData eventData)
     {
         SetAlpha(visibleAlpha);
-        //audioManager.PlaySound("ButtonClick");
+        audioManager.PlaySound("SFX_ButtonClick");
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         SetAlpha(visibleAlpha);
+    }
+    
+    public void ResetOutline()
+    {
+        SetAlpha(hiddenAlpha);
     }
 
     private void SetAlpha(float alpha)

@@ -39,6 +39,11 @@ public class TrashCollection : MonoBehaviour
                 }
             }
         }
+        
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameUI.winScreen.activeSelf || gameUI.loseScreen.activeSelf)
+        {
+            gameUI.TogglePause();
+        }
     }
 
     private void CollectTrash(TrashItem trash)
