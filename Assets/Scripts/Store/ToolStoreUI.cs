@@ -14,12 +14,6 @@ public class ToolStoreUI : MonoBehaviour
     [Space(20)] 
     [SerializeField] private ToolStoreDatabase toolDatabase;
     
-    [Header("Store Events")] 
-    [SerializeField] private GameObject storeUI;
-    [SerializeField] private GameObject mainMenuUI;
-    [SerializeField] Button openStoreButton;
-    [SerializeField] Button closeStoreButton;
-    
     [Space (20)]
     [Header("Scroll View")]
     [SerializeField] ScrollRect scrollRect;
@@ -129,28 +123,10 @@ public class ToolStoreUI : MonoBehaviour
         else
             bottomScrollFade.SetActive (false);
     }
-    
+
     void AddStoreEvents()
     {
-        openStoreButton.onClick.RemoveAllListeners();
-        openStoreButton.onClick.AddListener(OpenStore);
-        
-        closeStoreButton.onClick.RemoveAllListeners();
-        closeStoreButton.onClick.AddListener(CloseStore);
-        
-        scrollRect.onValueChanged.RemoveAllListeners ();
-        scrollRect.onValueChanged.AddListener (OnStoreListScroll);
-    }
-
-    void OpenStore()
-    {
-        storeUI.SetActive(true);
-        mainMenuUI.SetActive(false);
-    }
-
-    void CloseStore()
-    {
-        storeUI.SetActive(false);
-        mainMenuUI.SetActive(true);
+        scrollRect.onValueChanged.RemoveAllListeners();
+        scrollRect.onValueChanged.AddListener(OnStoreListScroll);
     }
 }
