@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 //Shop Data Holder
 [System.Serializable] public class ToolStoreData
@@ -11,6 +12,8 @@ using UnityEngine.Serialization;
 {
 	public int points = 0;
 	public int selectedToolIndex = 0;
+	
+	public int highestUnlockedLevel = 1; // Start with level 1 unlocked
 }
 
 public static class GameDataManager
@@ -65,11 +68,31 @@ public static class GameDataManager
 		playerData.points -= amount;
 		SavePlayerData ();
 	}
+	
+	public static int GetCurrentLevelIndex()
+	{
+		return SceneManager.GetActiveScene().buildIndex;
+	}
+	
+	public static int GetHighestUnlockedLevel()
+	{
+		return playerData.highestUnlockedLevel;
+	}
+
+	public static void SetHighestUnlockedLevel(int level)
+	{
+		if (level > playerData.highestUnlockedLevel)
+		{
+			playerData.highestUnlockedLevel = level;
+			SavePlayerData();
+		}
+	}
 
 	static void LoadPlayerData ()
 	{
 		playerData = BinarySerializer.Load<PlayerData> ("player-data.txt");
 		UnityEngine.Debug.Log ("<color=green>[PlayerData] Loaded.</color>");
+		
 	}
 
 	static void SavePlayerData ()

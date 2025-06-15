@@ -79,6 +79,12 @@ public class TrashCollection : MonoBehaviour
         if (totalTrashDeposited >= collectionGoal)
         {
             gameUI?.ShowWinScreen();
+            
+            int currentLevel = GameDataManager.GetCurrentLevelIndex(); // You'll need to pass this from the scene manager or build index
+            if (currentLevel >= GameDataManager.GetHighestUnlockedLevel())
+            {
+                GameDataManager.SetHighestUnlockedLevel(currentLevel + 1);
+            }
         }
     }
     
