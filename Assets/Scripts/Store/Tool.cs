@@ -1,5 +1,7 @@
 using UnityEngine;
 
+public enum ToolType { None, Net, Fins, OxygenTank }
+
 [System.Serializable]
 public struct Tool
 {

@@ -71,7 +71,7 @@ public class TrashCollection : MonoBehaviour
         
         totalTrashDeposited += carriedTrashCount;
         carriedTrashCount = 0;
-        playerController.ResetSpeed();
+        playerController.ResetDebuffOnly();
 
         gameUI?.UpdateTrashDepositedText(totalTrashDeposited, collectionGoal);
         gameUI?.UpdateTrashCarryingText(carriedTrashCount, carryLimit);

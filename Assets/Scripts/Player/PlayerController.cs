@@ -6,16 +6,10 @@ public class PlayerController : MonoBehaviour{
 	[SerializeField] private float swimForce = 4f;
 	[HideInInspector] public float currentSpeed;
 	
-	//public bool rushing = false;
-	//private float speedMod = 0;
-
-	//float timeLeft = 2f;
+	private float speedMultiplier = 1f;
+	private float trashDebuff = 0f;
 
 	private Rigidbody2D rb;
-
-	//private Animator myAnim;
-
-	//public GameObject bubbles;
 
 	void Awake()
 	{
@@ -25,15 +19,11 @@ public class PlayerController : MonoBehaviour{
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D> ();	
-		//myAnim = GetComponent<Animator> ();
-		//UpdateUI();
 	}
 	
 	void Update()
 	{
 		HandleInput ();
-		//resetBoostTime ();
-		//myAnim.SetFloat ("Speed", Mathf.Abs(myRigidBody.linearVelocity.x));
 	}
 	
 	private void HandleInput()
@@ -80,39 +70,41 @@ public class PlayerController : MonoBehaviour{
 		{
 			transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0f);
 		}
-		
-		/*if(Input.GetButtonDown("Jump") && !rushing ){
-			rushing = true;
-			speedMod = 2;
-			Instantiate (bubbles, gameObject.transform.position, gameObject.transform.rotation);
-			movePlayer ();
-		} */
 	}
 
 	public void ApplySpeedDebuff(float debuff)
 	{
-		currentSpeed = Mathf.Max(0.1f, currentSpeed - debuff);
+		trashDebuff += debuff;
+		UpdateSpeed();
 	}
-	
-	public void ResetSpeed()
+
+	public void ResetDebuffOnly()
 	{
-		currentSpeed = baseSpeed;
+		trashDebuff = 0f;
+		UpdateSpeed();
 	}
 
-	/*void resetBoostTime(){
-		if (timeLeft <= 0) {
-			timeLeft = 2f;
-			rushing = false;
-			speedMod = 0;
-		} else if(rushing) {
-			timeLeft -= Time.deltaTime;
-		}	
-	} */
+	public void ResetToolEffects()
+	{
+		speedMultiplier = 1f;
+		UpdateSpeed();
+	}
 
-	/* public void hurt(){
-		if(!rushing){
-			gameObject.GetComponent<Animator> ().Play ("PlayerHurt");		
-		}
+	public void ResetAllSpeedModifiers()
+	{
+		trashDebuff = 0f;
+		speedMultiplier = 1f;
+		UpdateSpeed();
+	}
 
-	} */
+	public void SetSpeedMultiplier(float multiplier)
+	{
+		speedMultiplier = multiplier;
+		UpdateSpeed();
+	}
+
+	private void UpdateSpeed()
+	{
+		currentSpeed = Mathf.Max(0.1f, baseSpeed * speedMultiplier - trashDebuff);
+	}
 }
