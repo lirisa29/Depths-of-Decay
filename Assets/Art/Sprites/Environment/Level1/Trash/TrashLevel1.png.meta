@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TrashLevel1_0: -9126106740628110659
+      TrashLevel1_1: 7005915295752920879
+      TrashLevel1_2: -3255211551809279410
+      TrashLevel1_3: 2438277076403925616
+      TrashLevel1_4: 6753107705438439800
+      TrashLevel1_5: -6682110477581134112
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
