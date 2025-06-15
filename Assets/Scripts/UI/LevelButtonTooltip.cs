@@ -1,17 +1,18 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class LevelButtonTooltip : MonoBehaviour
+public class LevelButtonTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public string levelName;
+    public LevelTooltip tooltip;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        FindObjectOfType<LevelTooltip>()?.ShowTooltip(levelName);
+        tooltip.ShowTooltip(levelName, GetComponent<RectTransform>());
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        FindObjectOfType<LevelTooltip>()?.HideTooltip();
+        tooltip.HideTooltip();
     }
 }

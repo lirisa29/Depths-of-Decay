@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f59d4e17564aaf045a42bb908514367a
+guid: fb46530aa4018e643b05e52e8e322238
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4936150175375924092
-    second: CurrentMissionButtonOutline_0
+      213: 5214809717476932423
+    second: CurrentLevel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CurrentMissionButtonOutline_0
+      name: CurrentLevel_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4846cbe71954f7bb0800000000000000
-      internalID: -4936150175375924092
+      spriteID: 74bb77d0fc9be5840800000000000000
+      internalID: 5214809717476932423
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CurrentMissionButtonOutline_0: -4936150175375924092
+      CurrentLevel_0: 5214809717476932423
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

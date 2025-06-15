@@ -3,33 +3,52 @@ using TMPro;
 
 public class LevelTooltip : MonoBehaviour
 {
-    public GameObject tooltipPanel;
-    public TextMeshProUGUI tooltipText;
+    public GameObject tooltipPrefab;
+    private GameObject currentTooltip;
     public Vector2 offset;
+    public Transform tooltipParent;
 
-    void Update()
+    // Call this to show tooltip above the button
+    public void ShowTooltip(string text, RectTransform targetButton)
     {
-        if (tooltipPanel.activeSelf)
-        {
-            Vector2 pos;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                tooltipPanel.transform.parent as RectTransform,
-                Input.mousePosition,
-                null,
-                out pos
-            );
-            tooltipPanel.GetComponent<RectTransform>().anchoredPosition = pos + offset;
-        }
-    }
+        if (currentTooltip != null)
+            Destroy(currentTooltip);
 
-    public void ShowTooltip(string text)
-    {
+        // Instantiate the tooltip under the same canvas
+        currentTooltip = Instantiate(tooltipPrefab, tooltipParent);
+
+        // Set the text
+        TextMeshProUGUI tooltipText = currentTooltip.GetComponentInChildren<TextMeshProUGUI>();
         tooltipText.text = text;
-        tooltipPanel.SetActive(true);
+
+        // Position it above the button
+        RectTransform tooltipRect = currentTooltip.GetComponent<RectTransform>();
+
+        // Get screen position of top center of the button
+        Vector3[] corners = new Vector3[4];
+        targetButton.GetWorldCorners(corners);
+        Vector3 buttonTopCenter = (corners[1] + corners[2]) / 2f;
+
+        // Convert world point to screen point
+        Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(null, buttonTopCenter);
+
+        // Convert to local position within parent canvas
+        Vector2 localPos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            tooltipParent as RectTransform,
+            screenPos,
+            null, // no camera needed for Screen Space - Overlay
+            out localPos
+        );
+
+        tooltipRect.anchoredPosition = localPos + new Vector2(0, 20);
     }
 
     public void HideTooltip()
     {
-        tooltipPanel.SetActive(false);
+        if (currentTooltip != null)
+        {
+            Destroy(currentTooltip);
+        }
     }
 }
