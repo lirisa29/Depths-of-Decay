@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class ToolSelectionUI : MonoBehaviour
 {
@@ -24,23 +25,16 @@ public class ToolSelectionUI : MonoBehaviour
     [SerializeField] GameObject topScrollFade;
     [SerializeField] GameObject bottomScrollFade;
 
-    private int newSelectedItemIndex = 0;
-    private int previousSelectedItemIndex = 0;
+    private List<int> selectedToolIndices = new List<int>();
+    private int allowedSlots;
 
     private void Start()
     {
-        SetSelectedTool();
+        allowedSlots = GameDataManager.GetAllowedToolSlots();
+        selectedToolIndices.Clear();
+        
         AddStoreEvents();
         GenerateSelectionUI();
-    }
-    
-    void SetSelectedTool ()
-    {
-        //Get saved index
-        int index = GameDataManager.GetSelectedToolIndex ();
-
-        //Set selected tool
-        GameDataManager.SetSelectedTool (toolDatabase.GetTool(index), index);
     }
 
     void GenerateSelectionUI()
@@ -73,7 +67,8 @@ public class ToolSelectionUI : MonoBehaviour
             uiItem.SetToolCons(tool.cons);
 
             // Handle selection logic
-            uiItem.OnItemSelect(i, OnItemSelected);
+            int toolIndex = i;
+            uiItem.OnItemSelect(toolIndex, OnItemSelected);
 
             visibleItemCount++;
         }
@@ -88,29 +83,53 @@ public class ToolSelectionUI : MonoBehaviour
 
     void OnItemSelected(int index)
     {
-        // Select item in the UI
-        SelectItemUI (index);
+        ToolItemUI uiItem = GetItemUIByIndex(index);
 
-        //Save Data
-        GameDataManager.SetSelectedTool (toolDatabase.GetTool(index), index);
+        if (selectedToolIndices.Contains(index))
+        {
+            selectedToolIndices.Remove(index);
+            uiItem.DeselectItem();
+        }
+        else
+        {
+            if (selectedToolIndices.Count >= allowedSlots)
+            {
+                Debug.LogWarning("Maximum tools selected");
+                // Optional: flash warning in UI
+                return;
+            }
+
+            selectedToolIndices.Add(index);
+            uiItem.SelectItem();
+        }
     }
     
-    void SelectItemUI (int itemIndex)
+    public void ConfirmToolSelection()
     {
-        previousSelectedItemIndex = newSelectedItemIndex;
-        newSelectedItemIndex = itemIndex;
+        // Always include default tool (assume index 0 is default)
+        if (!selectedToolIndices.Contains(0))
+            selectedToolIndices.Insert(0, 0);
 
-        ToolItemUI prevUiItem = GetItemUI (previousSelectedItemIndex);
-        ToolItemUI newUiItem = GetItemUI (newSelectedItemIndex);
+        List<Tool> selectedTools = new List<Tool>();
+        foreach (int index in selectedToolIndices)
+        {
+            selectedTools.Add(toolDatabase.GetTool(index));
+        }
 
-        prevUiItem.DeselectItem ();
-        newUiItem.SelectItem ();
-
+        GameDataManager.SetSelectedTools(selectedTools, selectedToolIndices); // You’ll need to implement this
+        Debug.Log("Tool selection confirmed: " + string.Join(", ", selectedToolIndices));
     }
     
-    ToolItemUI GetItemUI (int index)
+    ToolItemUI GetItemUIByIndex (int index)
     {
-        return selectionItemsContainer.GetChild (index).GetComponent <ToolItemUI> ();
+        foreach (Transform child in selectionItemsContainer)
+        {
+            ToolItemUI itemUI = child.GetComponent<ToolItemUI>();
+            if (child.name.StartsWith("Item" + index.ToString()))
+                return itemUI;
+        }
+
+        return null;
     }
     
     void OnStoreListScroll (Vector2 value)

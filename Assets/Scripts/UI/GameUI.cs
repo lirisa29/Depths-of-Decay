@@ -15,6 +15,7 @@ public class GameUI : MonoBehaviour
     public GameObject ingameUI;
     public GameObject pauseMenu;
     private bool isPaused;
+    private bool isGameOver;
 
     public void UpdateTrashCarryingText(int carried, int limit)
     {
@@ -89,6 +90,7 @@ public class GameUI : MonoBehaviour
     public void ShowWinScreen()
     {
         Time.timeScale = 0;
+        isGameOver = true;
         ingameUI.SetActive(false);
         winScreen.SetActive(true);
     }
@@ -96,13 +98,14 @@ public class GameUI : MonoBehaviour
     public void ShowLoseScreen()
     {
         Time.timeScale = 0;
+        isGameOver = true;
         ingameUI.SetActive(false);
         loseScreen.SetActive(true);
     }
 
     public void PauseGame()
     {
-        if (!isPaused)
+        if (!isPaused && !isGameOver)
         {
             //audioManager.PlaySound("ButtonClick");
             Time.timeScale = 0;
@@ -116,10 +119,13 @@ public class GameUI : MonoBehaviour
 
     public void ResumeGame()
     {
-        Time.timeScale = 1;
-        isPaused = false;
-        ingameUI.SetActive(true);
-        pauseMenu.SetActive(false);
+        if (isPaused && !isGameOver)
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+            ingameUI.SetActive(true);
+            pauseMenu.SetActive(false);
+        }
     }
     
     public void TogglePause()
