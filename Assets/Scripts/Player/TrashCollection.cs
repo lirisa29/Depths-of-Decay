@@ -40,7 +40,7 @@ public class TrashCollection : MonoBehaviour
             }
         }
         
-        if (Input.GetKeyDown(KeyCode.Escape) && !gameUI.winScreen.activeSelf || gameUI.loseScreen.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             gameUI.TogglePause();
         }
@@ -80,7 +80,16 @@ public class TrashCollection : MonoBehaviour
         {
             gameUI?.ShowWinScreen();
             
-            int currentLevel = GameDataManager.GetCurrentLevelIndex(); // You'll need to pass this from the scene manager or build index
+            int currentLevel = GameDataManager.GetCurrentLevelIndex();
+
+            if (!GameDataManager.HasLevelBeenRewarded(currentLevel))
+            {
+                int pointsAwarded = 75 + (currentLevel - 1) * 25; // Level 1 = 75, Level 2 = 100, etc.
+                GameDataManager.AddPoints(pointsAwarded);
+                GameDataManager.MarkLevelAsRewarded(currentLevel);
+                GameSharedUI.Instance.UpdatePointsUIText(); // Refresh UI
+            }
+
             if (currentLevel >= GameDataManager.GetHighestUnlockedLevel())
             {
                 GameDataManager.SetHighestUnlockedLevel(currentLevel + 1);

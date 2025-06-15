@@ -93,7 +93,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in dialogueTextToDisplay)
         {
             dialogueText.text += letter; // Add one character at a time
-            yield return new WaitForSeconds(0.05f); // Adjust typing speed here (lower is faster)
+            yield return new WaitForSecondsRealtime(0.05f); // Adjust typing speed here (lower is faster)
         }
 
         isTyping = false;

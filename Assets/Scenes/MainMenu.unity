@@ -3885,6 +3885,7 @@ GameObject:
   - component: {fileID: 1011368849}
   - component: {fileID: 1011368850}
   - component: {fileID: 1011368852}
+  - component: {fileID: 1011368853}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3984,6 +3985,20 @@ MonoBehaviour:
   lockedSprite: {fileID: 21300000, guid: 41e8ca02ac7a5a04c9bc6693570f0e13, type: 3}
   currentSprite: {fileID: 21300000, guid: fb46530aa4018e643b05e52e8e322238, type: 3}
   unlockedSprite: {fileID: 21300000, guid: 53b897a6017e8f246950673eb824a7eb, type: 3}
+--- !u!114 &1011368853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011368845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c50f8e13a7127d4882a6bb607f20313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsUIText:
+  - {fileID: 5134054018563895584}
 --- !u!1 &1015509424
 GameObject:
   m_ObjectHideFlags: 0
@@ -8133,6 +8148,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8312773638806148287, guid: eef7c479682bf3d48b53bc6236ddfde2, type: 3}
   m_PrefabInstance: {fileID: 5134054018563895582}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5134054018563895584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1941952401990760424, guid: eef7c479682bf3d48b53bc6236ddfde2, type: 3}
+  m_PrefabInstance: {fileID: 5134054018563895582}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

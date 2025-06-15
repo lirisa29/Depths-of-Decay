@@ -11,9 +11,11 @@ using UnityEngine.SceneManagement;
 [System.Serializable] public class PlayerData
 {
 	public int points = 0;
-	public int selectedToolIndex = 0;
+	public List<int> selectedToolIndices = new List<int>();
+	public List<Tool> selectedTools = new List<Tool>();
 	
 	public int highestUnlockedLevel = 1; // Start with level 1 unlocked
+	public List<int> completedLevels = new List<int>();
 }
 
 public static class GameDataManager
@@ -34,17 +36,36 @@ public static class GameDataManager
 	{
 		return selectedTool;
 	}
-
-	public static void SetSelectedTool (Tool tool, int index)
+	
+	public static int GetAllowedToolSlots()
 	{
-		selectedTool = tool;
-		playerData.selectedToolIndex = index;
-		SavePlayerData ();
+		int currentLevel = GetCurrentLevelIndex();
+
+		if (currentLevel <= 2) return 1;
+		else if (currentLevel == 3) return 2;
+		else return 3; // Extend as you wish
 	}
 
-	public static int GetSelectedToolIndex ()
+	public static void SetSelectedTools(List<Tool> tools, List<int> indices)
 	{
-		return playerData.selectedToolIndex;
+		playerData.selectedToolIndices = new List<int>(indices);
+		playerData.selectedTools = new List<Tool>(tools);
+		SavePlayerData();
+	}
+
+	public static List<Tool> GetSelectedTools()
+	{
+		return new List<Tool>(playerData.selectedTools);
+	}
+
+	public static List<int> GetSelectedToolIndices()
+	{
+		return new List<int>(playerData.selectedToolIndices);
+	}
+
+	public static int GetSelectedToolIndex()
+	{
+		return playerData.selectedToolIndices.Count > 0 ? playerData.selectedToolIndices[0] : 0;
 	}
 
 	public static int GetPoints ()
@@ -67,6 +88,20 @@ public static class GameDataManager
 	{
 		playerData.points -= amount;
 		SavePlayerData ();
+	}
+	
+	public static bool HasLevelBeenRewarded(int level)
+	{
+		return playerData.completedLevels.Contains(level);
+	}
+
+	public static void MarkLevelAsRewarded(int level)
+	{
+		if (!playerData.completedLevels.Contains(level))
+		{
+			playerData.completedLevels.Add(level);
+			SavePlayerData();
+		}
 	}
 	
 	public static int GetCurrentLevelIndex()
