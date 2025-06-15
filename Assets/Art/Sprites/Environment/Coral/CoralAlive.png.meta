@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CoralAlive_0: 2412697781269500598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

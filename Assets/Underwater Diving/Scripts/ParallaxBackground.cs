@@ -9,7 +9,7 @@ public class ParallaxBackground : MonoBehaviour {
 
 	private Transform cameraTransform;
 	private Transform[] layers;
-	private float viewZone = 10;
+	private float viewZone = 50;
 	private int leftIndex;
 	private int rightIndex;
 	private float lastCameraX;
