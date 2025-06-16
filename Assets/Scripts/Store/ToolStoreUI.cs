@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class ToolStoreUI : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ToolStoreUI : MonoBehaviour
     [SerializeField] private GameObject itemPrefab;
     [Space(20)] 
     [SerializeField] private ToolStoreDatabase toolDatabase;
+    [SerializeField] private GameObject noMorePoints;
     
     [Space (20)]
     [Header("Scroll View")]
@@ -103,13 +105,15 @@ public class ToolStoreUI : MonoBehaviour
         else 
         {
             //No enough coins..
-            AnimateNoMoreCoinsText ();
+            StartCoroutine(AnimateNoMoreCoinsText());
         }
     }
     
-    void AnimateNoMoreCoinsText ()
+    private IEnumerator AnimateNoMoreCoinsText()
     {
-       
+        noMorePoints.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        noMorePoints.SetActive(false);
     }
     
     void OnStoreListScroll (Vector2 value)

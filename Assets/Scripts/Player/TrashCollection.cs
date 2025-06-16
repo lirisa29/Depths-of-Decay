@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class TrashCollection : MonoBehaviour
 {
@@ -14,10 +16,16 @@ public class TrashCollection : MonoBehaviour
     private PlayerController playerController;
     private GameUI gameUI;
     private OxygenManager oxygenManager;
+
+    [SerializeField] private TextMeshProUGUI levelPointsAwardedText;
     
     private int baseCarryLimit;
     
+    [SerializeField] private GameObject milestoneImage;
+    
     private AudioManager audioManager;
+
+    private bool enteredBase;
 
     void Start()
     {
@@ -48,6 +56,14 @@ public class TrashCollection : MonoBehaviour
                     gameUI.SetCarryTextColor(Color.red);
                     gameUI?.ShowCarryStatus("Carry Limit Reached! Go back to Base");
                 }
+            }
+        }
+        
+        if (enteredBase)
+        {
+            if (Input.GetKeyDown(KeyCode.Q) && carriedTrashCount != 0)
+            {
+                DepositTrash();
             }
         }
         
@@ -107,6 +123,9 @@ public class TrashCollection : MonoBehaviour
         }
         
         totalTrashDeposited += carriedTrashCount;
+        
+        UpdateMilestoneSpriteOpacity();
+        
         carriedTrashCount = 0;
         playerController.ResetDebuffOnly();
 
@@ -124,6 +143,7 @@ public class TrashCollection : MonoBehaviour
             if (!GameDataManager.HasLevelBeenRewarded(currentLevel))
             {
                 int pointsAwarded = 75 + (currentLevel - 1) * 25; // Level 1 = 75, Level 2 = 100, etc.
+                levelPointsAwardedText.text = pointsAwarded.ToString();
                 GameDataManager.AddPoints(pointsAwarded);
                 GameDataManager.MarkLevelAsRewarded(currentLevel);
                 GameSharedUI.Instance.UpdatePointsUIText(); // Refresh UI
@@ -164,6 +184,8 @@ public class TrashCollection : MonoBehaviour
     {
         gameUI?.HideCarryingStatus();
 
+        enteredBase = true;
+
         if (carriedTrashCount != 0)
         {
             gameUI?.ShowDepositButton();
@@ -173,6 +195,8 @@ public class TrashCollection : MonoBehaviour
     public void NotifyExitedBase()
     {
         gameUI?.HideDepositButton();
+        
+        enteredBase = false;
 
         if (projectedTotal >= collectionGoal)
         {
@@ -188,5 +212,24 @@ public class TrashCollection : MonoBehaviour
     {
         carryLimit = newLimit;
         gameUI?.UpdateTrashCarryingText(carriedTrashCount, carryLimit);
+    }
+    
+    private void UpdateMilestoneSpriteOpacity()
+    {
+        if (milestoneImage == null) return;
+
+        SpriteRenderer sr = milestoneImage.GetComponent<SpriteRenderer>();
+        if (sr == null) return;
+
+        // Calculate progress between 0 (0%) and 1 (100%)
+        float progress = Mathf.Clamp01((float)totalTrashDeposited / collectionGoal);
+
+        // Calculate alpha as inverse of progress
+        float alpha = 1f - progress;
+
+        // Apply new alpha to the sprite's color
+        Color color = sr.color;
+        color.a = alpha;
+        sr.color = color;
     }
 }

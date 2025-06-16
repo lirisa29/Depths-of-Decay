@@ -591,6 +591,7 @@ GameObject:
   - component: {fileID: 1691135102978271044}
   - component: {fileID: 4078282091729556973}
   - component: {fileID: 4340447106294464993}
+  - component: {fileID: 469701664364744793}
   m_Layer: 5
   m_Name: Btn_Back
   m_TagString: Untagged
@@ -713,6 +714,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &469701664364744793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2514462063737451179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ee8fc4eb9915c42a5436ddc1f44b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineImage: {fileID: 606845433578953000}
+  visibleAlpha: 1
+  hiddenAlpha: 0
 --- !u!1 &2595693230251372307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,6 +1523,7 @@ MonoBehaviour:
   storeItemsContainer: {fileID: 4151509527568718676}
   itemPrefab: {fileID: 8727016628585573726, guid: f3631ae60db81a04e81fc19af8e9a2c0, type: 3}
   toolDatabase: {fileID: 11400000, guid: 43b38a01944f1ee4fa6142210f2ec21c, type: 2}
+  noMorePoints: {fileID: 7831286170060817509}
   scrollRect: {fileID: 75065128353481770}
   topScrollFade: {fileID: 559109935156498399}
   bottomScrollFade: {fileID: 5190993987927689433}

@@ -1,12 +1,13 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class GameUI : MonoBehaviour
 {
     public TextMeshProUGUI trashCarryingText;
     public TextMeshProUGUI trashDepositedText;
     public TextMeshProUGUI carryingStatusText;
-    public GameObject depositButton;
+    public TextMeshProUGUI deposit;
     public GameObject trashInfoPopupPrefab;
     private GameObject activeTrashPopup;
     public Transform canvasTransform;
@@ -46,14 +47,14 @@ public class GameUI : MonoBehaviour
 
     public void ShowDepositButton()
     {
-        if (depositButton)
-            depositButton.SetActive(true);
+        if (deposit)
+            deposit.gameObject.SetActive(true);
     }
 
     public void HideDepositButton()
     {
-        if (depositButton)
-            depositButton.SetActive(false);
+        if (deposit)
+            deposit.gameObject.SetActive(false);
     }
     
     public void SetCarryTextColor(Color color)
@@ -93,6 +94,7 @@ public class GameUI : MonoBehaviour
         isGameOver = true;
         ingameUI.SetActive(false);
         winScreen.SetActive(true);
+        trashInfoPopupPrefab.SetActive(false);
     }
 
     public void ShowLoseScreen()
@@ -101,18 +103,19 @@ public class GameUI : MonoBehaviour
         isGameOver = true;
         ingameUI.SetActive(false);
         loseScreen.SetActive(true);
+        trashInfoPopupPrefab.SetActive(false);
     }
 
     public void PauseGame()
     {
         if (!isPaused && !isGameOver)
         {
-            //audioManager.PlaySound("ButtonClick");
             Time.timeScale = 0;
 
             isPaused = true;
 
             ingameUI.SetActive(false);
+            trashInfoPopupPrefab.SetActive(false);
             pauseMenu.SetActive(true);
         }
     }
@@ -124,6 +127,7 @@ public class GameUI : MonoBehaviour
             Time.timeScale = 1;
             isPaused = false;
             ingameUI.SetActive(true);
+            trashInfoPopupPrefab.SetActive(true);
             pauseMenu.SetActive(false);
         }
     }

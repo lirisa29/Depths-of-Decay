@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class ToolSelectionUI : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class ToolSelectionUI : MonoBehaviour
     [SerializeField] private Transform selectionItemsContainer;
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private ToolStoreDatabase toolDatabase;
+    [SerializeField] private GameObject storeButton;
+    [SerializeField] private GameObject maxItems;
 
     [Header("Layout Settings")]
     [SerializeField] private float itemSpacing = 10f;
@@ -15,9 +18,7 @@ public class ToolSelectionUI : MonoBehaviour
 
     [Header("Store Events")]
     [SerializeField] private GameObject selectionUI;
-    [SerializeField] private GameObject mainMenuUI;
-    [SerializeField] private Button openSelectionButton;
-    [SerializeField] private Button closeSelectionButton;
+    [SerializeField] private GameObject storeUI;
     
     [Space (20)]
     [Header("Scroll View")]
@@ -29,12 +30,16 @@ public class ToolSelectionUI : MonoBehaviour
     private int allowedSlots;
     
     private LevelStartManager levelStartManager;
+    
+    [SerializeField] private TextMeshProUGUI allowedSlotsText;
 
     private void Start()
     {
         levelStartManager = FindFirstObjectByType<LevelStartManager>();
         
         allowedSlots = GameDataManager.GetAllowedToolSlots();
+        allowedSlotsText.text = $"Limit: {allowedSlots}";
+        
         selectedToolIndices.Clear();
         
         AddStoreEvents();
@@ -49,6 +54,8 @@ public class ToolSelectionUI : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        
+        selectedToolIndices.Clear();
 
         int visibleItemCount = 0;
         int defaultToolIndex = 0;
@@ -110,11 +117,14 @@ public class ToolSelectionUI : MonoBehaviour
         {
             if (selectedToolIndices.Count >= allowedSlots)
             {
-                Debug.LogWarning("Maximum tools selected");
-                // Optional: flash warning in UI
+                storeButton.SetActive(false);
+                maxItems.SetActive(true);
                 return;
             }
 
+            storeButton.SetActive(true);
+            maxItems.SetActive(false);
+            
             selectedToolIndices.Add(index);
             uiItem.SelectItem();
         }
@@ -158,6 +168,19 @@ public class ToolSelectionUI : MonoBehaviour
             bottomScrollFade.SetActive (true);
         else
             bottomScrollFade.SetActive (false);
+    }
+
+    public void OpenStoreUI()
+    {
+        selectionUI.SetActive (false);
+        storeUI.SetActive (true);
+    }
+
+    public void CloseStoreUI()
+    {
+        GenerateSelectionUI();
+        storeUI.SetActive (false);
+        selectionUI.SetActive (true);
     }
     
     void AddStoreEvents()
