@@ -17,7 +17,7 @@ MonoBehaviour:
     name: Trash Grabber
     pros: Default
     cons: No Special Abilities
-    price: 75
+    price: 0
     isPurchased: 1
     speedMultiplier: 1
     oxygenDepletionRate: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
     name: Weighted Trash Net
     pros: 'Pros: Increases Carry Capacity'
     cons: 'Cons: Decreases Speed'
-    price: 100
+    price: 75
     isPurchased: 1
     speedMultiplier: 0.9
     oxygenDepletionRate: 0
@@ -35,8 +35,8 @@ MonoBehaviour:
     name: Jet Propulsion Fins
     pros: 'Pros: Increases Speed'
     cons: 'Cons: Increases Oxygen Drain'
-    price: 125
-    isPurchased: 0
+    price: 100
+    isPurchased: 1
     speedMultiplier: 1.2
     oxygenDepletionRate: 2
     carryCapacityModifier: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
     name: Oxygen Regenerator
     pros: 'Pros: Slows Oxygen Consumption'
     cons: 'Cons: Reduces Max Carry Capacity'
-    price: 150
-    isPurchased: 0
+    price: 125
+    isPurchased: 1
     speedMultiplier: 1
     oxygenDepletionRate: -2
     carryCapacityModifier: -1
@@ -53,7 +53,7 @@ MonoBehaviour:
     name: Trash Vacuum
     pros: 'Pros: Instantly Collects Nearby Trash'
     cons: 'Cons: Longer Cooldown'
-    price: 175
+    price: 150
     isPurchased: 0
     speedMultiplier: 1
     oxygenDepletionRate: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
     name: Speed Buoy
     pros: 'Pros: Speed Boost When Nearby'
     cons: 'Cons: Single-Use Per Mission'
-    price: 200
+    price: 175
     isPurchased: 0
     speedMultiplier: 1
     oxygenDepletionRate: 0

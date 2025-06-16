@@ -13,6 +13,7 @@ public class TrashCollection : MonoBehaviour
     private TrashItem nearbyTrash;
     private PlayerController playerController;
     private GameUI gameUI;
+    private OxygenManager oxygenManager;
     
     private int baseCarryLimit;
 
@@ -20,6 +21,7 @@ public class TrashCollection : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
         gameUI = FindFirstObjectByType<GameUI>();
+        oxygenManager = FindFirstObjectByType<OxygenManager>();
         
         baseCarryLimit = carryLimit;
         
@@ -73,6 +75,12 @@ public class TrashCollection : MonoBehaviour
     {
         gameUI?.HideDepositButton();
         gameUI?.SetCarryTextColor(Color.white);
+        
+        for (int i = 0; i < carriedTrashCount; i++)
+        {
+            oxygenManager.RefillOxygen(20);
+            Debug.Log("Oxygen Refilled");
+        }
         
         totalTrashDeposited += carriedTrashCount;
         carriedTrashCount = 0;

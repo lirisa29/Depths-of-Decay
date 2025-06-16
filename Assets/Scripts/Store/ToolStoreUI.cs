@@ -73,10 +73,9 @@ public class ToolStoreUI : MonoBehaviour
         return storeItemsContainer.GetChild (index).GetComponent <ToolItemUI> ();
     }
 
-    void OnItemPurchase(int index)
+    void OnItemPurchase(int index, ToolItemUI uiItem)
     {
         Tool tool = toolDatabase.GetTool (index);
-        ToolItemUI uiItem = GetItemUI (index);
 
         if (GameDataManager.CanSpendPoints (tool.price)) {
             //Proceed with the purchase operation

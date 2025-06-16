@@ -60,10 +60,10 @@ public class ToolItemUI : MonoBehaviour
         itemImage.color = itemNotSelectedColour;
     }
 
-    public void OnItemPurchased(int itemIndex, UnityAction<int> action)
+    public void OnItemPurchased(int itemIndex, UnityAction<int, ToolItemUI> action)
     {
         toolPurchaseButton.onClick.RemoveAllListeners();
-        toolPurchaseButton.onClick.AddListener(() => action.Invoke(itemIndex));
+        toolPurchaseButton.onClick.AddListener(() => action.Invoke(itemIndex, this));
     }
 
     public void OnItemSelect(int itemIndex, UnityAction<int> action)
