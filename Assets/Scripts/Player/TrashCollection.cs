@@ -141,6 +141,18 @@ public class TrashCollection : MonoBehaviour
             audioManager.PlaySound("SFX_MissionWin");
             
             int currentLevel = GameDataManager.GetCurrentLevelIndex();
+            
+            float currentTime = Time.time - levelStartTime;
+            int levelIndex = GameDataManager.GetCurrentLevelIndex();
+
+            GameDataManager.SaveBestTime(levelIndex, currentTime);
+
+            float bestTime = GameDataManager.GetBestTime(levelIndex);
+
+            if (GameDataManager.HasLevelBeenRewarded(levelIndex))
+            {
+                gameUI?.ShowWinTimes(currentTime, bestTime);
+            }
 
             if (!GameDataManager.HasLevelBeenRewarded(currentLevel))
             {
@@ -154,18 +166,6 @@ public class TrashCollection : MonoBehaviour
             if (currentLevel >= GameDataManager.GetHighestUnlockedLevel())
             {
                 GameDataManager.SetHighestUnlockedLevel(currentLevel + 1);
-            }
-            
-            float currentTime = Time.time - levelStartTime;
-            int levelIndex = GameDataManager.GetCurrentLevelIndex();
-
-            GameDataManager.SaveBestTime(levelIndex, currentTime);
-
-            float bestTime = GameDataManager.GetBestTime(levelIndex);
-
-            if (GameDataManager.HasLevelBeenRewarded(levelIndex))
-            {
-                gameUI?.ShowWinTimes(currentTime, bestTime);
             }
         }
     }
