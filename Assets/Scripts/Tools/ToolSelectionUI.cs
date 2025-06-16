@@ -27,9 +27,13 @@ public class ToolSelectionUI : MonoBehaviour
 
     private List<int> selectedToolIndices = new List<int>();
     private int allowedSlots;
+    
+    private LevelStartManager levelStartManager;
 
     private void Start()
     {
+        levelStartManager = FindFirstObjectByType<LevelStartManager>();
+        
         allowedSlots = GameDataManager.GetAllowedToolSlots();
         selectedToolIndices.Clear();
         
@@ -47,6 +51,7 @@ public class ToolSelectionUI : MonoBehaviour
         }
 
         int visibleItemCount = 0;
+        int defaultToolIndex = 0;
 
         for (int i = 0; i < toolDatabase.ToolsCount; i++)
         {
@@ -69,6 +74,12 @@ public class ToolSelectionUI : MonoBehaviour
             // Handle selection logic
             int toolIndex = i;
             uiItem.OnItemSelect(toolIndex, OnItemSelected);
+            
+            if (i == defaultToolIndex)
+            {
+                selectedToolIndices.Add(defaultToolIndex);
+                uiItem.SelectItem();
+            }
 
             visibleItemCount++;
         }
@@ -84,6 +95,11 @@ public class ToolSelectionUI : MonoBehaviour
     void OnItemSelected(int index)
     {
         ToolItemUI uiItem = GetItemUIByIndex(index);
+        
+        if (index == 0)
+        {
+            return;
+        }
 
         if (selectedToolIndices.Contains(index))
         {
@@ -110,14 +126,10 @@ public class ToolSelectionUI : MonoBehaviour
         if (!selectedToolIndices.Contains(0))
             selectedToolIndices.Insert(0, 0);
 
-        List<Tool> selectedTools = new List<Tool>();
-        foreach (int index in selectedToolIndices)
-        {
-            selectedTools.Add(toolDatabase.GetTool(index));
-        }
-
-        GameDataManager.SetSelectedTools(selectedTools, selectedToolIndices); // You’ll need to implement this
+        GameDataManager.SetSelectedTools(selectedToolIndices); // You’ll need to implement this
         Debug.Log("Tool selection confirmed: " + string.Join(", ", selectedToolIndices));
+        
+        levelStartManager.OnToolSelectionConfirmed();
     }
     
     ToolItemUI GetItemUIByIndex (int index)

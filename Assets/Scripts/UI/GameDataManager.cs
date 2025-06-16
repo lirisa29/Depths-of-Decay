@@ -12,7 +12,6 @@ using UnityEngine.SceneManagement;
 {
 	public int points = 0;
 	public List<int> selectedToolIndices = new List<int>();
-	public List<Tool> selectedTools = new List<Tool>();
 	
 	public int highestUnlockedLevel = 1; // Start with level 1 unlocked
 	public List<int> completedLevels = new List<int>();
@@ -22,6 +21,8 @@ public static class GameDataManager
 {
 	static PlayerData playerData = new PlayerData ();
 	static ToolStoreData toolStoreData = new ToolStoreData ();
+	
+	public static ToolStoreDatabase toolDatabase;
 
 	static Tool selectedTool;
 
@@ -32,30 +33,30 @@ public static class GameDataManager
 	}
 
 	//Player Data Methods -----------------------------------------------------------------------------
-	public static Tool GetSelectedTool ()
-	{
-		return selectedTool;
-	}
 	
 	public static int GetAllowedToolSlots()
 	{
 		int currentLevel = GetCurrentLevelIndex();
 
-		if (currentLevel <= 2) return 1;
-		else if (currentLevel == 3) return 2;
-		else return 3; // Extend as you wish
+		if (currentLevel <= 2) return 2;
+		else if (currentLevel == 3) return 3;
+		else return 4; // Extend as you wish
 	}
-
-	public static void SetSelectedTools(List<Tool> tools, List<int> indices)
-	{
-		playerData.selectedToolIndices = new List<int>(indices);
-		playerData.selectedTools = new List<Tool>(tools);
-		SavePlayerData();
-	}
-
+	
 	public static List<Tool> GetSelectedTools()
 	{
-		return new List<Tool>(playerData.selectedTools);
+		var tools = new List<Tool>();
+		foreach (var index in playerData.selectedToolIndices)
+		{
+			tools.Add(toolDatabase.GetTool(index));
+		}
+		return tools;
+	}
+
+	public static void SetSelectedTools(List<int> indices)
+	{
+		playerData.selectedToolIndices = new List<int>(indices);
+		SavePlayerData();
 	}
 
 	public static List<int> GetSelectedToolIndices()

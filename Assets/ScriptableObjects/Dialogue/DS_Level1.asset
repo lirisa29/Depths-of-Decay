@@ -14,6 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLines:
   - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
-    dialogueText: blah blah blah
+    dialogueText: Hey, Pieter. It's good to finally meet you in person.
   - speaker: {fileID: 11400000, guid: be2ce026c2371184e8c217126703e60d, type: 2}
-    dialogueText: bleh bleh bleh
+    dialogueText: "Ah, you must be Sage. I\u2019ve heard a lot about you. I\u2019m
+      glad you\u2019re here. We need all the help we can get."
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "I\u2019ve been reading up on the Vaal\u2026 I didn\u2019t realize
+      how bad things had gotten here. It\u2019s heartbreaking."
+  - speaker: {fileID: 11400000, guid: be2ce026c2371184e8c217126703e60d, type: 2}
+    dialogueText: "Yeah. Once, this river was the lifeblood of our community. People
+      used to fish, swim, drink from it. Now, it\u2019s toxic. We\u2019re toxic."
+  - speaker: {fileID: 11400000, guid: be2ce026c2371184e8c217126703e60d, type: 2}
+    dialogueText: "The air smells of chemicals, the water\u2019s full of waste, and
+      people get sick from just living here. But the government\u2026 they don\u2019t
+      listen. They\u2019ve been ignoring it for years."
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "That\u2019s what we\u2019re trying to change, right? We can\u2019t
+      do everything, but we can clean what we can and show people what\u2019s possible."
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "It\u2019s going to take more than just cleaning up, though, isn\u2019t
+      it?"
+  - speaker: {fileID: 11400000, guid: be2ce026c2371184e8c217126703e60d, type: 2}
+    dialogueText: "Yeah. The cleanup\u2019s just one piece of the puzzle. We need
+      better infrastructure, proper waste management\u2026 but until we get the government
+      to step up, it\u2019s on people like you and me to do what we can."
+  - speaker: {fileID: 11400000, guid: be2ce026c2371184e8c217126703e60d, type: 2}
+    dialogueText: "We can\u2019t do this alone. We need to make noise. We need people
+      to care."
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "I\u2019m here to help you make that noise. One cleanup at a time."
+  - speaker: {fileID: 11400000, guid: be2ce026c2371184e8c217126703e60d, type: 2}
+    dialogueText: "I\u2019m glad you\u2019re here, Sage. I think you\u2019re just
+      the person to help us make that noise."
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "Let\u2019s get started then. There\u2019s a lot of work ahead."

@@ -5,6 +5,7 @@ public class LevelStartManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject toolSelectionPanel;
     [SerializeField] private GameObject gameplayObjects; // Root of player/enemies/scripts etc
+    [SerializeField] private ToolInventoryManager toolInventory;
 
     private bool isReplayLevel1;
 
@@ -12,6 +13,7 @@ public class LevelStartManager : MonoBehaviour
     {
         Time.timeScale = 0f; // Pause the game
         gameplayObjects.SetActive(false);
+        toolInventory.enabled = false;
 
         int currentLevel = GameDataManager.GetCurrentLevelIndex();
         isReplayLevel1 = (currentLevel == 1 && GameDataManager.GetHighestUnlockedLevel() > 1);
@@ -44,6 +46,7 @@ public class LevelStartManager : MonoBehaviour
     private void StartGameplay()
     {
         gameplayObjects.SetActive(true);
+        toolInventory.enabled = true;
         Time.timeScale = 1f;
     }
 }

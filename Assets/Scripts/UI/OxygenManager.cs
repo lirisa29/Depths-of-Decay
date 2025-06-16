@@ -106,4 +106,9 @@ public class OxygenManager : MonoBehaviour
         currentOxygen = Mathf.Min(currentOxygen + amount, maxOxygen);
         UpdateOxygenUI();
     }
+    
+    public void SetDepletionRate(float newRate)
+    {
+        depletionRate = newRate;
+    }
 }

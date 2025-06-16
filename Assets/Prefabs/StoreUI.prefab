@@ -237,7 +237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.81618357}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.0001, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1520817949155060281
@@ -274,7 +274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.20136698}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.5700073}
+  m_AnchoredPosition: {x: 0, y: -0.57006836}
   m_SizeDelta: {x: 0.0001, y: 1.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1811147228222067396
@@ -389,7 +389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.21038818, y: -0.00012207031}
+  m_AnchoredPosition: {x: -0.21044922, y: -0.00012207031}
   m_SizeDelta: {x: -1138.354, y: -235.0366}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1708844435607964507
@@ -465,7 +465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.577, y: 0.1414384}
   m_AnchorMax: {x: 0.94544137, y: 0.76400006}
-  m_AnchoredPosition: {x: 0.047851562, y: -0.7198982}
+  m_AnchoredPosition: {x: 0.047851562, y: -0.7198944}
   m_SizeDelta: {x: 1.5419006, y: -1.8352966}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2442742115154612860
@@ -501,7 +501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.06767611, y: 0.20136698}
   m_AnchorMax: {x: 0.9488381, y: 0.81618357}
-  m_AnchoredPosition: {x: -1.0661926, y: -0.50001526}
+  m_AnchoredPosition: {x: -1.0661621, y: -0.5}
   m_SizeDelta: {x: 1.0880966, y: 0.36999512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2514462063737451179
@@ -624,7 +624,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4078282091729556973}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: ClosePanel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8312773638806148287}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2595693230251372307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7409719910316843717
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1419,10 +1431,6 @@ MonoBehaviour:
   storeItemsContainer: {fileID: 4151509527568718676}
   itemPrefab: {fileID: 8727016628585573726, guid: f3631ae60db81a04e81fc19af8e9a2c0, type: 3}
   toolDatabase: {fileID: 11400000, guid: 43b38a01944f1ee4fa6142210f2ec21c, type: 2}
-  storeUI: {fileID: 2741063009229454662}
-  mainMenuUI: {fileID: 0}
-  openStoreButton: {fileID: 0}
-  closeStoreButton: {fileID: 4340447106294464993}
   scrollRect: {fileID: 75065128353481770}
   topScrollFade: {fileID: 559109935156498399}
   bottomScrollFade: {fileID: 5190993987927689433}
@@ -1571,6 +1579,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4151509527568718676}
     m_Modifications:
+    - target: {fileID: 2586795970253706054, guid: f3631ae60db81a04e81fc19af8e9a2c0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c030bfdc0351c784a86c086e4ed20a6d, type: 3}
+    - target: {fileID: 2586795970253706054, guid: f3631ae60db81a04e81fc19af8e9a2c0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586795970253706054, guid: f3631ae60db81a04e81fc19af8e9a2c0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586795970253706054, guid: f3631ae60db81a04e81fc19af8e9a2c0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7079425138515637640, guid: f3631ae60db81a04e81fc19af8e9a2c0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1633,7 +1657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7079425138515637640, guid: f3631ae60db81a04e81fc19af8e9a2c0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.0689087
+      value: -1.0689697
       objectReference: {fileID: 0}
     - target: {fileID: 7079425138515637640, guid: f3631ae60db81a04e81fc19af8e9a2c0, type: 3}
       propertyPath: m_AnchoredPosition.y

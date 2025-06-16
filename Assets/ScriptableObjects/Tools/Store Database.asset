@@ -13,39 +13,57 @@ MonoBehaviour:
   m_Name: Store Database
   m_EditorClassIdentifier: 
   tools:
-  - image: {fileID: 0}
+  - image: {fileID: 21300000, guid: c030bfdc0351c784a86c086e4ed20a6d, type: 3}
     name: Trash Grabber
     pros: Default
     cons: No Special Abilities
     price: 75
     isPurchased: 1
-  - image: {fileID: 0}
+    speedMultiplier: 1
+    oxygenDepletionRate: 0
+    carryCapacityModifier: 0
+  - image: {fileID: 21300000, guid: ebeeaaf4373e20b4a872378e5d0cc991, type: 3}
     name: Weighted Trash Net
     pros: 'Pros: Increases Carry Capacity'
     cons: 'Cons: Decreases Speed'
     price: 100
     isPurchased: 1
-  - image: {fileID: 0}
+    speedMultiplier: 0.9
+    oxygenDepletionRate: 0
+    carryCapacityModifier: 2
+  - image: {fileID: 21300000, guid: b900a5f038aa4fa40a0dc2f2d2c4355f, type: 3}
     name: Jet Propulsion Fins
     pros: 'Pros: Increases Speed'
     cons: 'Cons: Increases Oxygen Drain'
     price: 125
     isPurchased: 0
-  - image: {fileID: 0}
+    speedMultiplier: 1.2
+    oxygenDepletionRate: 2
+    carryCapacityModifier: 0
+  - image: {fileID: 21300000, guid: 0457f4af447f4ad40990732bdafb9ba5, type: 3}
     name: Oxygen Regenerator
     pros: 'Pros: Slows Oxygen Consumption'
     cons: 'Cons: Reduces Max Carry Capacity'
     price: 150
     isPurchased: 0
-  - image: {fileID: 0}
+    speedMultiplier: 1
+    oxygenDepletionRate: -2
+    carryCapacityModifier: -1
+  - image: {fileID: 21300000, guid: 67a43a97016a7d34a967db680489fa93, type: 3}
     name: Trash Vacuum
     pros: 'Pros: Instantly Collects Nearby Trash'
     cons: 'Cons: Longer Cooldown'
     price: 175
     isPurchased: 0
-  - image: {fileID: 0}
+    speedMultiplier: 1
+    oxygenDepletionRate: 0
+    carryCapacityModifier: 0
+  - image: {fileID: 21300000, guid: 13da618ee0dd7b8408aa8a1d3aa75fee, type: 3}
     name: Speed Buoy
     pros: 'Pros: Speed Boost When Nearby'
     cons: 'Cons: Single-Use Per Mission'
     price: 200
     isPurchased: 0
+    speedMultiplier: 1
+    oxygenDepletionRate: 0
+    carryCapacityModifier: 0

@@ -13,11 +13,16 @@ public class TrashCollection : MonoBehaviour
     private TrashItem nearbyTrash;
     private PlayerController playerController;
     private GameUI gameUI;
+    
+    private int baseCarryLimit;
 
     void Start()
     {
         playerController = GetComponent<PlayerController>();
         gameUI = FindFirstObjectByType<GameUI>();
+        
+        baseCarryLimit = carryLimit;
+        
         gameUI?.UpdateTrashCarryingText(carriedTrashCount, carryLimit);
         gameUI?.UpdateTrashDepositedText(totalTrashDeposited, collectionGoal);
     }
@@ -143,5 +148,11 @@ public class TrashCollection : MonoBehaviour
         {
             gameUI?.ShowCarryStatus("Carry Limit Reached! Go back to Base");
         }
+    }
+    
+    public void SetCarryLimit(int newLimit)
+    {
+        carryLimit = newLimit;
+        gameUI?.UpdateTrashCarryingText(carriedTrashCount, carryLimit);
     }
 }

@@ -1,7 +1,5 @@
 using UnityEngine;
 
-public enum ToolType { None, Net, Fins, OxygenTank }
-
 [System.Serializable]
 public struct Tool
 {
@@ -12,4 +10,8 @@ public struct Tool
     public int price;
     
     public bool isPurchased;
+    
+    public float speedMultiplier;
+    public float oxygenDepletionRate;
+    public int carryCapacityModifier;
 }

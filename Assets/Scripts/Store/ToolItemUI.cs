@@ -77,7 +77,6 @@ public class ToolItemUI : MonoBehaviour
     {
         //itemOutline.enabled = true;
         itemImage.color = itemSelectedColour;
-        itemButton.interactable = false;
     }
     
     public void DeselectItem()
