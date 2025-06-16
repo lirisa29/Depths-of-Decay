@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
         PlayBackgroundMusic("BGM_MainMenu");
     }
 
-    private void PlayBackgroundMusic(string name)
+    public void PlayBackgroundMusic(string name)
     {
         AudioClip clip = soundTable[name];
         if (musicSource.clip == clip) return;

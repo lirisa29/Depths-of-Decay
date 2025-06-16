@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,15 @@ public class SceneController : MonoBehaviour
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.StopAllSounds();
+        }
+
+        if (sceneIndex == 0)
+        {
+            AudioManager.Instance.PlayBackgroundMusic("BGM_MainMenu");
+        }
+        else
+        {
+            AudioManager.Instance.PlayBackgroundMusic("BGM_In-Game");
         }
 
         SceneManager.LoadScene(sceneIndex);
