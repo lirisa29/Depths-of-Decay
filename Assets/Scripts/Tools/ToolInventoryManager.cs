@@ -24,8 +24,12 @@ public class ToolInventoryManager : MonoBehaviour
     
     [SerializeField] private ToolStoreDatabase toolDatabase;
     
+    private AudioManager audioManager;
+    
     void Start()
     {
+        audioManager = FindFirstObjectByType<AudioManager>();
+        
         GameDataManager.toolDatabase = toolDatabase;
         
         playerController = FindFirstObjectByType<PlayerController>();
@@ -52,6 +56,7 @@ public class ToolInventoryManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            audioManager.PlaySound("SFX_InventoryOpen");
             inventoryOpen = !inventoryOpen;
             inventoryPanel.SetActive(inventoryOpen);
         }
@@ -71,6 +76,7 @@ public class ToolInventoryManager : MonoBehaviour
 
     public void EquipTool(int index)
     {
+        audioManager.PlaySound("SFX_ToolEquipped");
         currentToolIndex = index;
         Tool currentTool = equippedTools[currentToolIndex];
         Debug.Log("Equipped: " + currentTool.name);
