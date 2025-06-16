@@ -12,4 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b594af7af423404283dabf6753d5ef7, type: 3}
   m_Name: DS_Level2
   m_EditorClassIdentifier: 
-  dialogueLines: []
+  dialogueLines:
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "Hello, Mthetho. It\u2019s an honor to meet you."
+  - speaker: {fileID: 11400000, guid: 9cd4ab04ded5cd848a958e00ca1fa7a7, type: 2}
+    dialogueText: Ah, young one. The honor is mine. Welcome to the uThongathi.
+  - speaker: {fileID: 11400000, guid: 9cd4ab04ded5cd848a958e00ca1fa7a7, type: 2}
+    dialogueText: This is not just water. This is memory, this is life.
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "I\u2019ve heard the river used to be full of life\u2014fish, birds,
+      the mangroves. But it looks so different now\u2026 so still."
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: How did it come to this?
+  - speaker: {fileID: 11400000, guid: 9cd4ab04ded5cd848a958e00ca1fa7a7, type: 2}
+    dialogueText: The river, umfula, has been in our family for generations. My father
+      fished here. His father too. We always offered our thanks to the spirits of
+      the water, and in return, the river gave us what we needed.
+  - speaker: {fileID: 11400000, guid: 9cd4ab04ded5cd848a958e00ca1fa7a7, type: 2}
+    dialogueText: "But now, the fish are dying, the mangroves are choking, and the
+      water grows thick with poison. It is not just the pollution that hurts us\u2026
+      it is the forgetting."
+  - speaker: {fileID: 11400000, guid: 9cd4ab04ded5cd848a958e00ca1fa7a7, type: 2}
+    dialogueText: People forget that the river is part of us, that we are part of
+      it.
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "I see. So, it\u2019s not just about cleaning the water\u2014it\u2019s
+      about restoring that connection, right?"
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: How do we begin?
+  - speaker: {fileID: 11400000, guid: 9cd4ab04ded5cd848a958e00ca1fa7a7, type: 2}
+    dialogueText: Yes. To restore the river, we must first restore ourselves. Bring
+      the young ones here teach them to listen to the water, to honor it like we
+      did before. As we clean, we also teach respect.
+  - speaker: {fileID: 11400000, guid: 9cd4ab04ded5cd848a958e00ca1fa7a7, type: 2}
+    dialogueText: Only then will the river begin to heal. Only then will we heal.
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "I understand now. This is about more than just the water it\u2019s
+      about the people, the history\u2026 the spirit of this place."
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "I\u2019ll do everything I can, Mthetho."
+  - speaker: {fileID: 11400000, guid: 9cd4ab04ded5cd848a958e00ca1fa7a7, type: 2}
+    dialogueText: I know you will, ntombi. But remember, this is not just your work.
+      It is our work. The river belongs to all of us.
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "Together, we\u2019ll restore it."
+  - speaker: {fileID: 11400000, guid: 9cd4ab04ded5cd848a958e00ca1fa7a7, type: 2}
+    dialogueText: Good. The water spirits are watching. Let us give them something
+      to smile about.

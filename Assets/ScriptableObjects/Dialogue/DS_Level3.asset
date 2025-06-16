@@ -12,4 +12,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b594af7af423404283dabf6753d5ef7, type: 3}
   m_Name: DS_Level3
   m_EditorClassIdentifier: 
-  dialogueLines: []
+  dialogueLines:
+  - speaker: {fileID: 11400000, guid: c165e7b3d81b7c448b8dffc3641ca6de, type: 2}
+    dialogueText: "Hey! You must be Sage! I\u2019ve heard so much about you!"
+  - speaker: {fileID: 11400000, guid: c165e7b3d81b7c448b8dffc3641ca6de, type: 2}
+    dialogueText: "I\u2019m Kiara. I\u2019m so glad you\u2019re here to help with
+      the reef."
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "Thanks, Kiara. It\u2019s good to be here. I\u2019ve been reading
+      up on the reef, and it sounds like it\u2019s in rough shape."
+  - speaker: {fileID: 11400000, guid: c165e7b3d81b7c448b8dffc3641ca6de, type: 2}
+    dialogueText: "Yeah, it\u2019s... it\u2019s tough. False Bay used to be my escape,
+      you know? When I dive, it felt like I could breathe underwater, like I was
+      part of another world. The colors, the life, the reefs were just alive."
+  - speaker: {fileID: 11400000, guid: c165e7b3d81b7c448b8dffc3641ca6de, type: 2}
+    dialogueText: "But now\u2026 it\u2019s different. The trash, the bleaching, the
+      silence where there used to be buzzing corals... it feels like I\u2019m diving
+      into a memory, not a living place."
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: I can imagine how heartbreaking that must be, to watch something
+      so beautiful slip away.
+  - speaker: {fileID: 11400000, guid: c165e7b3d81b7c448b8dffc3641ca6de, type: 2}
+    dialogueText: "It is. But the thing is, I can still feel the potential down there.
+      The reef\u2014it\u2019s not gone, not completely. It\u2019s just sick. If we
+      act fast enough, we can help it heal. I truly believe that."
+  - speaker: {fileID: 11400000, guid: c165e7b3d81b7c448b8dffc3641ca6de, type: 2}
+    dialogueText: "I\u2019m here to dive, to photograph, to raise awareness. Small
+      acts, you know? It might not seem like much, but if we all pitch in, maybe
+      we can turn things around."
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "I like that. You\u2019re right it\u2019s the small acts that can
+      build momentum. Every cleanup, every piece of plastic removed, every story
+      shared, it adds up."
+  - speaker: {fileID: 11400000, guid: c165e7b3d81b7c448b8dffc3641ca6de, type: 2}
+    dialogueText: "Exactly. And maybe, just maybe, when we dive in and see the reef,
+      we\u2019ll remind it of what it can be again. Maybe it\u2019ll start to remember
+      how to heal."
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "I think you\u2019re onto something. It\u2019s going to take all
+      of us working together scientists, divers, locals\u2026 everyone."
+  - speaker: {fileID: 11400000, guid: c165e7b3d81b7c448b8dffc3641ca6de, type: 2}
+    dialogueText: "Exactly! And with you here, I know we\u2019re going to make a
+      difference."
+  - speaker: {fileID: 11400000, guid: c165e7b3d81b7c448b8dffc3641ca6de, type: 2}
+    dialogueText: Ready to dive in?
+  - speaker: {fileID: 11400000, guid: 087db4211aca13a468d3461462612ddc, type: 2}
+    dialogueText: "Absolutely. Let\u2019s see what we can do."
+  - speaker: {fileID: 11400000, guid: c165e7b3d81b7c448b8dffc3641ca6de, type: 2}
+    dialogueText: "Alright then! Let\u2019s show the reef we haven\u2019t forgotten
+      it."
