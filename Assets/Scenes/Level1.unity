@@ -499,8 +499,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -129.1018, y: 244}
-  m_SizeDelta: {x: 296.4659, y: 50}
+  m_AnchoredPosition: {x: -157, y: 244}
+  m_SizeDelta: {x: 569.6881, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &31070279
 MonoBehaviour:
@@ -1731,6 +1731,10 @@ PrefabInstance:
     - target: {fileID: 8631450873399267147, guid: d6c4e3896f9cb7e43b3be2a1181fcb0a, type: 3}
       propertyPath: m_Name
       value: ToolSelectionUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631450873399267147, guid: d6c4e3896f9cb7e43b3be2a1181fcb0a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10650,8 +10654,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -129.33472, y: 163}
-  m_SizeDelta: {x: 358.6609, y: 50}
+  m_AnchoredPosition: {x: -156.99994, y: 163}
+  m_SizeDelta: {x: 461.6318, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &649370932
 MonoBehaviour:
