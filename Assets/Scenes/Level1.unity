@@ -24620,7 +24620,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1311878037015517359, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
       propertyPath: collectionGoal
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1311878037015517359, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
       propertyPath: milestoneImage
