@@ -31,21 +31,25 @@ public class ToolInventoryManager : MonoBehaviour
         playerController = FindFirstObjectByType<PlayerController>();
         oxygenManager = FindFirstObjectByType<OxygenManager>();
         trashCollection = FindFirstObjectByType<TrashCollection>();
+
+        RefreshEquippedTools();
         
-        equippedTools = GameDataManager.GetSelectedTools();
-
-        // If no tools are equipped, assign default tool
-        if (equippedTools == null || equippedTools.Count == 0)
-        {
-            AssignDefaultTool();
-            equippedTools = GameDataManager.GetSelectedTools(); // Refresh the list after assigning
-        }
-
         // Cache base values
         baseOxygenRate = oxygenManager.depletionRate;
         baseCarryLimit = trashCollection.carryLimit;
-        
-        EquipTool(0); // default tool
+    }
+
+    public void RefreshEquippedTools()
+    {
+        equippedTools = GameDataManager.GetSelectedTools();
+    
+        if (equippedTools == null || equippedTools.Count == 0)
+        {
+            AssignDefaultTool();
+            equippedTools = GameDataManager.GetSelectedTools();
+        }
+
+        EquipTool(0);
         UpdateInventoryUI();
     }
 

@@ -40,6 +40,7 @@ public class LevelStartManager : MonoBehaviour
     public void OnToolSelectionConfirmed()
     {
         toolSelectionPanel.SetActive(false);
+        FindFirstObjectByType<ToolInventoryManager>()?.RefreshEquippedTools();
         StartGameplay();
     }
 

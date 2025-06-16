@@ -27,7 +27,7 @@ MonoBehaviour:
     pros: 'Pros: Increases Carry Capacity'
     cons: 'Cons: Decreases Speed'
     price: 75
-    isPurchased: 1
+    isPurchased: 0
     speedMultiplier: 0.9
     oxygenDepletionRate: 0
     carryCapacityModifier: 2
@@ -36,7 +36,7 @@ MonoBehaviour:
     pros: 'Pros: Increases Speed'
     cons: 'Cons: Increases Oxygen Drain'
     price: 100
-    isPurchased: 1
+    isPurchased: 0
     speedMultiplier: 1.2
     oxygenDepletionRate: 2
     carryCapacityModifier: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
     pros: 'Pros: Slows Oxygen Consumption'
     cons: 'Cons: Reduces Max Carry Capacity'
     price: 125
-    isPurchased: 1
+    isPurchased: 0
     speedMultiplier: 1
     oxygenDepletionRate: -2
     carryCapacityModifier: -1
