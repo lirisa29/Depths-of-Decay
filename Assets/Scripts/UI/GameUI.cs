@@ -15,8 +15,12 @@ public class GameUI : MonoBehaviour
     public GameObject loseScreen;
     public GameObject ingameUI;
     public GameObject pauseMenu;
+    public GameObject pointsPanel;
+    public GameObject bestTimePanel;
     private bool isPaused;
     private bool isGameOver;
+    public TextMeshProUGUI currentTimeText;
+    public TextMeshProUGUI bestTimeText;
 
     public void UpdateTrashCarryingText(int carried, int limit)
     {
@@ -141,6 +145,21 @@ public class GameUI : MonoBehaviour
         else
         {
             PauseGame();
+        }
+    }
+    
+    public void ShowWinTimes(float currentTime, float bestTime)
+    {
+        pointsPanel.SetActive(false);
+        bestTimePanel.SetActive(true);
+        
+        if (currentTimeText) currentTimeText.text = $"Time: {currentTime:F2}s";
+        if (bestTimeText)
+        {
+            if (bestTime == float.MaxValue)
+                bestTimeText.text = "Best Time: N/A";
+            else
+                bestTimeText.text = $"Best Time: {bestTime:F2}s";
         }
     }
 }

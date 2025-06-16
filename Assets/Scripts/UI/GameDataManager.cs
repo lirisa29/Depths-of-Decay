@@ -15,6 +15,8 @@ using UnityEngine.SceneManagement;
 	
 	public int highestUnlockedLevel = 1; // Start with level 1 unlocked
 	public List<int> completedLevels = new List<int>();
+	
+	public Dictionary<int, float> bestTimesPerLevel = new Dictionary<int, float>();
 }
 
 public static class GameDataManager
@@ -33,6 +35,31 @@ public static class GameDataManager
 	}
 
 	//Player Data Methods -----------------------------------------------------------------------------
+	
+	public static void SaveBestTime(int levelIndex, float newTime)
+	{
+		if (playerData.bestTimesPerLevel.ContainsKey(levelIndex))
+		{
+			if (newTime < playerData.bestTimesPerLevel[levelIndex])
+			{
+				playerData.bestTimesPerLevel[levelIndex] = newTime;
+				SavePlayerData();
+			}
+		}
+		else
+		{
+			playerData.bestTimesPerLevel[levelIndex] = newTime;
+			SavePlayerData();
+		}
+	}
+
+	public static float GetBestTime(int levelIndex)
+	{
+		if (playerData.bestTimesPerLevel.ContainsKey(levelIndex))
+			return playerData.bestTimesPerLevel[levelIndex];
+
+		return float.MaxValue;
+	}
 	
 	public static int GetAllowedToolSlots()
 	{
