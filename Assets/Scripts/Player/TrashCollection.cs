@@ -16,9 +16,13 @@ public class TrashCollection : MonoBehaviour
     private OxygenManager oxygenManager;
     
     private int baseCarryLimit;
+    
+    private AudioManager audioManager;
 
     void Start()
     {
+        audioManager = FindFirstObjectByType<AudioManager>();
+        
         playerController = GetComponent<PlayerController>();
         gameUI = FindFirstObjectByType<GameUI>();
         oxygenManager = FindFirstObjectByType<OxygenManager>();
@@ -55,6 +59,7 @@ public class TrashCollection : MonoBehaviour
 
     private void CollectTrash(TrashItem trash)
     {
+        audioManager.PlaySound("SFX_TrashPickup");
         carriedTrashCount++;
         float debuff = trash.GetWeight() * speedDebuffPerKg;
         playerController.ApplySpeedDebuff(debuff);
@@ -68,11 +73,30 @@ public class TrashCollection : MonoBehaviour
         if (projectedTotal >= collectionGoal)
         {
             gameUI?.ShowCarryStatus("All Trash Collected! Go back to Base");
+            
+            int levelIndex = GameDataManager.GetCurrentLevelIndex();
+
+            switch (levelIndex)
+            {
+                case 1: // Level 1
+                    audioManager.PlayBackgroundMusic("BGM_Level1Win");
+                    break;
+                case 2: // Level 2
+                    audioManager.PlayBackgroundMusic("BGM_Level2Win");
+                    break;
+                case 3: // Level 3
+                    audioManager.PlayBackgroundMusic("BGM_Level3Win");
+                    break;
+                default:
+                    audioManager.PlayBackgroundMusic("BGM_MainMenu"); // fallback/default music
+                    break;
+            }
         }
     }
 
     public void DepositTrash()
     {
+        audioManager.PlaySound("SFX_TrashDeposit");
         gameUI?.HideDepositButton();
         gameUI?.SetCarryTextColor(Color.white);
         
@@ -92,6 +116,8 @@ public class TrashCollection : MonoBehaviour
         if (totalTrashDeposited >= collectionGoal)
         {
             gameUI?.ShowWinScreen();
+
+            audioManager.PlaySound("SFX_MissionWin");
             
             int currentLevel = GameDataManager.GetCurrentLevelIndex();
 

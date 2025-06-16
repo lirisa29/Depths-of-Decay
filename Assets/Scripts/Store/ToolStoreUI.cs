@@ -24,8 +24,11 @@ public class ToolStoreUI : MonoBehaviour
     [Header ("Error messages")]
     [SerializeField] TextMeshProUGUI noEnoughPointsText;
     
+    private AudioManager audioManager;
+    
     void Start()
     {
+        audioManager = FindFirstObjectByType<AudioManager>();
         AddStoreEvents();
         GenerateStoreItemUI();
     }
@@ -78,6 +81,8 @@ public class ToolStoreUI : MonoBehaviour
         Tool tool = toolDatabase.GetTool (index);
 
         if (GameDataManager.CanSpendPoints (tool.price)) {
+            audioManager.PlaySound("SFX_ToolPurchased");
+            
             //Proceed with the purchase operation
             GameDataManager.SpendPoints (tool.price);
 

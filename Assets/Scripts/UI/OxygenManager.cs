@@ -26,9 +26,13 @@ public class OxygenManager : MonoBehaviour
     private bool isPulsing = false;
     
     private GameUI gameUI;
+    
+    private AudioManager audioManager;
 
     void Start()
     {
+        audioManager = FindFirstObjectByType<AudioManager>();
+        
         gameUI = FindFirstObjectByType<GameUI>();
         currentOxygen = maxOxygen;
         originalTextScale = oxygenLabel.rectTransform.localScale;
@@ -97,6 +101,7 @@ public class OxygenManager : MonoBehaviour
 
     void GameOver()
     {
+        audioManager.PlaySound("SFX_MissionFailed");
         isDepleting = false;
         gameUI?.ShowLoseScreen();
     }
