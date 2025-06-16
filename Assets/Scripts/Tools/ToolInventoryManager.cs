@@ -32,15 +32,6 @@ public class ToolInventoryManager : MonoBehaviour
         oxygenManager = FindFirstObjectByType<OxygenManager>();
         trashCollection = FindFirstObjectByType<TrashCollection>();
 
-        RefreshEquippedTools();
-        
-        // Cache base values
-        baseOxygenRate = oxygenManager.depletionRate;
-        baseCarryLimit = trashCollection.carryLimit;
-    }
-
-    public void RefreshEquippedTools()
-    {
         equippedTools = GameDataManager.GetSelectedTools();
     
         if (equippedTools == null || equippedTools.Count == 0)
@@ -48,7 +39,11 @@ public class ToolInventoryManager : MonoBehaviour
             AssignDefaultTool();
             equippedTools = GameDataManager.GetSelectedTools();
         }
-
+        
+        // Cache base values
+        baseOxygenRate = oxygenManager.depletionRate;
+        baseCarryLimit = trashCollection.carryLimit;
+        
         EquipTool(0);
         UpdateInventoryUI();
     }
