@@ -41251,7 +41251,7 @@ PrefabInstance:
     - target: {fileID: 1311878037015517359, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
       propertyPath: levelPointsAwardedText
       value: 
-      objectReference: {fileID: 1721200334}
+      objectReference: {fileID: 15395893}
     - target: {fileID: 2284130284813232473, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
       propertyPath: baseSpeed
       value: 1.5

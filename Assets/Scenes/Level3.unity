@@ -5169,7 +5169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &327087764
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21658,7 +21658,7 @@ PrefabInstance:
     - target: {fileID: 1311878037015517359, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
       propertyPath: levelPointsAwardedText
       value: 
-      objectReference: {fileID: 573112458}
+      objectReference: {fileID: 21166716}
     - target: {fileID: 2284130284813232473, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
       propertyPath: baseSpeed
       value: 1.5
