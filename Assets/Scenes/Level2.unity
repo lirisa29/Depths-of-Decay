@@ -5560,7 +5560,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 285508424}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850966027}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &285508424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8291,7 +8303,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 488715912}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850966027}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &488715912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38156,7 +38180,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 713244616}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850966027}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &713244616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39435,7 +39471,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 764092367}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850966027}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &764092367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40484,7 +40532,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 808964521}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850966027}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &808964521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40694,7 +40754,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 815125553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850966027}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &815125553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50136,7 +50208,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1376416115}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850966027}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1376416115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57434,7 +57518,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1869538659}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850966027}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1869538659
 MonoBehaviour:
   m_ObjectHideFlags: 0

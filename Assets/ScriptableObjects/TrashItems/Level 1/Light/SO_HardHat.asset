@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2746bcf610c2634a88b761684ae73d9, type: 3}
   m_Name: SO_HardHat
   m_EditorClassIdentifier: 
-  trashName: Stop Sign
-  categoryData: {fileID: 11400000, guid: 8861a004e1c720b468246d3df000c567, type: 2}
+  trashName: Hard Hat
+  categoryData: {fileID: 11400000, guid: 2b2c0018c89e7ca4eb4a89edbabeb8d4, type: 2}
