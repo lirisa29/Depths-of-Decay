@@ -98,7 +98,6 @@ public class GameUI : MonoBehaviour
         isGameOver = true;
         ingameUI.SetActive(false);
         winScreen.SetActive(true);
-        trashInfoPopupPrefab.SetActive(false);
     }
 
     public void ShowLoseScreen()
@@ -107,7 +106,6 @@ public class GameUI : MonoBehaviour
         isGameOver = true;
         ingameUI.SetActive(false);
         loseScreen.SetActive(true);
-        trashInfoPopupPrefab.SetActive(false);
     }
 
     public void PauseGame()
@@ -119,7 +117,6 @@ public class GameUI : MonoBehaviour
             isPaused = true;
 
             ingameUI.SetActive(false);
-            trashInfoPopupPrefab.SetActive(false);
             pauseMenu.SetActive(true);
         }
     }
@@ -131,7 +128,6 @@ public class GameUI : MonoBehaviour
             Time.timeScale = 1;
             isPaused = false;
             ingameUI.SetActive(true);
-            trashInfoPopupPrefab.SetActive(true);
             pauseMenu.SetActive(false);
         }
     }
@@ -153,7 +149,7 @@ public class GameUI : MonoBehaviour
         pointsPanel.SetActive(false);
         bestTimePanel.SetActive(true);
         
-        if (currentTimeText) currentTimeText.text = $"Time: {currentTime:F2}s";
+        if (currentTimeText) currentTimeText.text = $"Cleanup Completion Time: {currentTime:F2}s";
         if (bestTimeText)
         {
             if (bestTime == float.MaxValue)

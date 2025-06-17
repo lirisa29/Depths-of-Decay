@@ -1926,9 +1926,17 @@ PrefabInstance:
       propertyPath: allowedSlotsText
       value: 
       objectReference: {fileID: 120615724}
+    - target: {fileID: 6802792581541908933, guid: d6c4e3896f9cb7e43b3be2a1181fcb0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7087760078119106675, guid: d6c4e3896f9cb7e43b3be2a1181fcb0a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7846380096142764835, guid: d6c4e3896f9cb7e43b3be2a1181fcb0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8631450873399267147, guid: d6c4e3896f9cb7e43b3be2a1181fcb0a, type: 3}
       propertyPath: m_Name
@@ -2064,7 +2072,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 121893436}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3363835330031950029}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &121893436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9237,7 +9257,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 497784468}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3363835330031950029}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &497784468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12976,7 +13008,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 930321032}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3363835330031950029}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &930321032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13445,7 +13489,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 984700455}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3363835330031950029}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &984700455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15932,7 +15988,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1244504588}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3363835330031950029}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1244504588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16055,7 +16123,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1254100715}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3363835330031950029}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1254100715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16965,7 +17045,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1306899461}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3363835330031950029}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1306899461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24175,7 +24267,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2098095237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3363835330031950029}
+        m_TargetAssemblyTypeName: ToolInventoryManager, Assembly-CSharp
+        m_MethodName: EquipTool
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2098095237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24643,6 +24747,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 934245919}
     - target: {fileID: 2623773727169620288, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
+      propertyPath: slotButtons.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623773727169620288, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
       propertyPath: 'toolIcons.Array.data[0]'
       value: 
       objectReference: {fileID: 1092257057}
@@ -24674,6 +24782,38 @@ PrefabInstance:
       propertyPath: 'toolIcons.Array.data[7]'
       value: 
       objectReference: {fileID: 411864995}
+    - target: {fileID: 2623773727169620288, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
+      propertyPath: 'slotButtons.Array.data[0]'
+      value: 
+      objectReference: {fileID: 121893435}
+    - target: {fileID: 2623773727169620288, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
+      propertyPath: 'slotButtons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 930321031}
+    - target: {fileID: 2623773727169620288, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
+      propertyPath: 'slotButtons.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2098095236}
+    - target: {fileID: 2623773727169620288, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
+      propertyPath: 'slotButtons.Array.data[3]'
+      value: 
+      objectReference: {fileID: 497784467}
+    - target: {fileID: 2623773727169620288, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
+      propertyPath: 'slotButtons.Array.data[4]'
+      value: 
+      objectReference: {fileID: 984700454}
+    - target: {fileID: 2623773727169620288, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
+      propertyPath: 'slotButtons.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1254100714}
+    - target: {fileID: 2623773727169620288, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
+      propertyPath: 'slotButtons.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1306899460}
+    - target: {fileID: 2623773727169620288, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
+      propertyPath: 'slotButtons.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1244504587}
     - target: {fileID: 2623773727169620288, guid: 79abdd5e888fe5048b44115b50481b72, type: 3}
       propertyPath: 'slotBackgrounds.Array.data[0]'
       value: 

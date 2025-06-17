@@ -601,7 +601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3704507152028621323}
-  - component: {fileID: 8179845561808972512}
+  - component: {fileID: 2894532564253726231}
   m_Layer: 0
   m_Name: Parallax Background
   m_TagString: Untagged
@@ -627,7 +627,7 @@ Transform:
   - {fileID: 603337702412631899}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8179845561808972512
+--- !u!114 &2894532564253726231
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -636,7 +636,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2454016064372297676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8bf38aba251148898b4be0f47f9cdb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3847180f83e6aef48b1625f87c83e1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundSize: 9.6

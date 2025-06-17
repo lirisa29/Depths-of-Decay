@@ -18,6 +18,7 @@ public class ToolInventoryManager : MonoBehaviour
     [SerializeField] private GameObject inventoryPanel; // UI parent panel
     [SerializeField] private List<Image> toolIcons;     // List of UI Image components to show tool icons
     [SerializeField] private List<Image> slotBackgrounds; // Backgrounds to change color
+    [SerializeField] private List<Button> slotButtons;
 
     [SerializeField] private Color defaultSlotColor;
     [SerializeField] private Color equippedSlotColor;
@@ -100,6 +101,7 @@ public class ToolInventoryManager : MonoBehaviour
             else
             {
                 toolIcons[i].enabled = false;
+                slotButtons[i].interactable = false;
             }
         }
 

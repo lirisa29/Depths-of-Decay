@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-public class PlayerController : MonoBehaviour{
-
-	public float baseSpeed = 2f;
+public class PlayerController : MonoBehaviour
+{
+    public float baseSpeed = 2f;
 	[SerializeField] private float swimForce = 4f;
 	[HideInInspector] public float currentSpeed;
 	

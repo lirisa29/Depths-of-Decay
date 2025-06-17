@@ -135,6 +135,6 @@ public class ToolStoreUI : MonoBehaviour
     void AddStoreEvents()
     {
         scrollRect.onValueChanged.RemoveAllListeners();
-        scrollRect.onValueChanged.AddListener(OnStoreListScroll);
+        //scrollRect.onValueChanged.AddListener(OnStoreListScroll);
     }
 }
