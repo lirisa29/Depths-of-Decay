@@ -97,6 +97,7 @@ public class GameUI : MonoBehaviour
         Time.timeScale = 0;
         isGameOver = true;
         ingameUI.SetActive(false);
+        HideTrashInfoPopup();
         winScreen.SetActive(true);
     }
 
@@ -105,6 +106,7 @@ public class GameUI : MonoBehaviour
         Time.timeScale = 0;
         isGameOver = true;
         ingameUI.SetActive(false);
+        HideTrashInfoPopup();
         loseScreen.SetActive(true);
     }
 
@@ -117,6 +119,7 @@ public class GameUI : MonoBehaviour
             isPaused = true;
 
             ingameUI.SetActive(false);
+            HideTrashInfoPopup();
             pauseMenu.SetActive(true);
         }
     }
